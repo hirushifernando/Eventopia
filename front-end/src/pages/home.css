@@ -1,0 +1,29 @@
+body {
+  user-select: none;
+}
+
+.custom-carousel {
+    overflow: hidden; 
+  }
+  
+  .zoom-out-animation {
+    transition: transform 1s ease; 
+    transform-origin: center center; 
+  }
+  
+  .custom-carousel .carousel-item.active .zoom-out-animation {
+    transform: scale(0.9); 
+  }
+  
+  .scroll-to-top-button {
+    position: fixed;
+    border: 2px solid #814b87;
+    border-radius: 50%;
+    background-color: #DDDDDD;
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .scroll-to-top-button:hover {
+    background-color: #814b87;
+  }

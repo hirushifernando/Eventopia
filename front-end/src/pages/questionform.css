@@ -1,0 +1,40 @@
+.form_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #814b87; 
+  }
+  
+  .form_header_left {
+    display: flex;
+    align-items: center;
+  }
+  
+  .form_name {
+    margin-left: 10px;
+  }
+  
+  .form_header_right {
+    display: flex;
+    align-items: center;
+  }
+  
+  .form_header_icon {
+    margin-right: 10px;
+    color:white;
+  }
+  
+  .logo {
+    display: block;
+  }
+  .custom-button:hover {
+    background-color: #a87aa6; /* Change the color to your desired hover color */
+  }
+  
+  @media (max-width: 768px) {
+    .logo {
+      display: none;
+    }
+  }
+  
