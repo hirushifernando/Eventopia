@@ -54,7 +54,7 @@ app.post('/login',(req, res) =>{
                 res.json("The password is incorrect")
             }
         }else {
-            res.json("No record existed. Please create a account")
+            res.json("No record existed. Please create a  new account")
         }
     })
 })
