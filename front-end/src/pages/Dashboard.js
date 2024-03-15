@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-
 import NavComp from '../components/NavComp';
 import { Container, Button, Card  } from 'react-bootstrap'; // Imported Button from react-bootstrap
 import ListGroup from 'react-bootstrap/ListGroup';
@@ -151,10 +150,13 @@ const handleAddTask = async () => {
           </Card>
           </div>
           <div style={{ marginRight: '20px'}}>
-            <Card style={{ width: '250px', backgroundColor:'white', height:'80px', padding:'10px' }}>
+            <Card style={{ width: '260px', backgroundColor:'white', height:'80px', padding:'10px' }}>
               {/* Clock component placed inside the Card */}
               <Clock />
               {/* Additional content for the Card can be added here */}
+            </Card>
+            <Card>
+            
             </Card>
           </div>
           <Card style={{ width: '900px', backgroundColor:'white', height:'320px' }}>
