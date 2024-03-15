@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 import NavComp from '../components/NavComp';
 import { Container, Button, Card  } from 'react-bootstrap'; // Imported Button from react-bootstrap
 import ListGroup from 'react-bootstrap/ListGroup';
@@ -9,6 +10,46 @@ import { Spinner } from 'react-bootstrap';
 import Calendar from 'react-calendar'; // Import the Calendar component
 import 'react-calendar/dist/Calendar.css'; // Import Calendar styles
 import axios from 'axios';
+import moment from 'moment';
+
+
+class Clock extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      time: moment().format('LTS'),
+      one: true,
+      two: false,
+      three: false,
+      four: false,
+      class: ''
+    };
+    
+  }
+  componentDidMount() {
+    setInterval(() => {
+      if (this.state.one == true) {
+        this.setState({
+          time: moment().format('LTS')
+        });
+      }
+      else if (this.state.four == true) {
+        this.setState({
+          time: moment().format('LT')
+        });
+      }
+    }, 1000);
+  }
+  
+  render() {
+    return (
+      <div id="clock">
+        <h1 className={this.state.class}>{this.state.time}</h1>
+      </div>
+    );
+  }
+}
+
 
 const accordionItems = [
   {
@@ -94,14 +135,11 @@ const handleAddTask = async () => {
   }
 };
 
-
-
-
   return (
     <div>
         <NavComp/>
         <Container style={{ marginTop: '30px' }}>
-        <h4 style={{ marginTop: '30px', marginBottom: '30px' }}><b>Calendar</b></h4>
+        <h4 style={{ marginTop: '30px', marginBottom: '30px' }}><b>Calendar & Time</b></h4>
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
           {/* Calendar component */}
           <div style={{ marginRight: '20px'}}>
@@ -111,6 +149,13 @@ const handleAddTask = async () => {
               value={selectedDate} // Pass the selected date
             />
           </Card>
+          </div>
+          <div style={{ marginRight: '20px'}}>
+            <Card style={{ width: '250px', backgroundColor:'white', height:'80px', padding:'10px' }}>
+              {/* Clock component placed inside the Card */}
+              <Clock />
+              {/* Additional content for the Card can be added here */}
+            </Card>
           </div>
           <Card style={{ width: '900px', backgroundColor:'white', height:'320px' }}>
             <Card.Body>
