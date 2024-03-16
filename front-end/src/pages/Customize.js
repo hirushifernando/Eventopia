@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Container, Card, Row, Col } from 'react-bootstrap';
+import { Link } from 'react-router-dom'; // Import Link
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavComp from '../components/NavComp';
 import ShortFooter from '../components/ShortFooter';
@@ -12,13 +13,13 @@ const topic = [
     name: 'Menu',
     description: 'Serenity Springs Lodge is an ethereal haven that seamlessly blends celestial charm with lunar luxury. A truly out-of-this-world experience!',
     image: '/directory1.jpg',
-    link:''
+    link:'/event' // Define link to event details page
   },
   {
     name: 'Theme',
     description: 'Enchanted Echo Hotel is a symphony of comfort and magic. Each stay feels like a journey through the stars in Celestia City!',
     image: '/directory2.jpg',
-    link:''
+    link:'/event/theme' // Define link to event details page
   },
 ];
 
@@ -49,11 +50,13 @@ function Template() {
                 </Col>
               </Row>
               <div style={{ textAlign: 'center', marginTop: '10px' }}>
-                <FontAwesomeIcon
-                    icon={faArrowAltCircleRight}
-                    style={{ cursor: 'pointer' }}
-                    onClick={() => selectTopic(topic)}
-                    />
+                <Link to={topic.link}> {/* Use Link component to wrap the element */}
+                  <FontAwesomeIcon
+                      icon={faArrowAltCircleRight}
+                      style={{ cursor: 'pointer' }}
+                      onClick={() => selectTopic(topic)}
+                  />
+                </Link>
              </div>
             </Card>
           </Container>

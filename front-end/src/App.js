@@ -39,7 +39,7 @@ function App() {
           </React.Fragment>
         } />
         <Route path="content" element={<Content/>} />
-       <Route path="event" element={<EventDetails/>} />
+        <Route path="event" element={<EventDetails/>} />
         </Routes>
       </Router>
     </div>
