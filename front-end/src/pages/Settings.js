@@ -16,26 +16,26 @@ const SettingsTabs = () => {
     city: '',
     country: '',
   });
-  useEffect(() => {
-    const registrationData = localStorage.getItem('registrationData');
-    if (registrationData) {
-      const data = JSON.parse(registrationData);
-      setFormData({
-        fullName: data.name,
-        email: data.email,
-        phoneNumber: '', // Set other fields if available
-        city: '', // Set other fields if available
-        country: '' // Set other fields if available
-      });
-    }
-  }, []);
-
+  const [showMessage, setShowMessage] = useState(false);
+  
   useEffect(() => {
     const savedFormData = localStorage.getItem('formData');
     if (savedFormData) {
       setFormData(JSON.parse(savedFormData));
     }
+    
+    const registrationData = JSON.parse(localStorage.getItem('registrationData'));
+    if (registrationData) {
+      setFormData({
+        fullName: registrationData.name,
+        email: registrationData.email,
+        phoneNumber: '', // You can set other fields if available
+        city: '', // You can set other fields if available
+        country: '' // You can set other fields if available
+      });
+    }
   }, []);
+
 
   const [formErrors, setFormErrors] = useState({});
 
@@ -54,6 +54,10 @@ const SettingsTabs = () => {
       axios.post('http://localhost:8002/setting', formData)
         .then(response => {
           console.log('Settings saved:', response.data);
+          setShowMessage(true); // Display success message
+          setTimeout(() => {
+            setShowMessage(false);
+          }, 3000); 
           // Handle success, if needed
         })
         .catch(error => {
@@ -186,13 +190,16 @@ const SettingsTabs = () => {
          }}>
             <button type="submit" className="save-button"
             style={{
-              backgroundColor: '#c6c6f5',
+              backgroundColor: '#a600a6',
               border: '2px solid #a600a6',
               borderRadius: '10px',
               padding:'10px 100px'
-            }}>
+            }} onClick={handleFormSubmit}>
              Save Changes
                   </button>
+                  {showMessage && (
+                    <div style={{ marginTop: '10px', color: '#a600a6' }}>Data saved successfully!</div>
+                  )}
                 </div>
               </Form>
             </div>
