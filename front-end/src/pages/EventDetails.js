@@ -1,468 +1,152 @@
-import React, { useState } from 'react';
-import { Container, Tab, Tabs, Card, Row, Col, Spinner } from 'react-bootstrap';
-import { faGlobe, faLocation, faMailBulk, faPhone, faCalendarAlt  } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React, {useState} from 'react';
+import { Spinner,Container, Row, Col, Image, Button, FormControl } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
-import './eventdetails.css'
+import { useHistory } from 'react-router-dom';
+import NavComp from '../components/NavComp';
+import "./eventdetails.css";
+import blank from "../images/Start-New-Form.png";
+import wedding from "../images/p1.jpg";
+import party from "../images/p2.jpg";
+import partyT from "../images/p4.jpg";
+import weddingT from "../images/p5.png";
+import workshopT from "../images/p5.jpg";
+import workshopM from "../images/p6.jpg";
+import eventT from "../images/p7.jpg";
+import uuid from "react-uuid";
+import doc_image from "../images/p3.jpg";
+import { useNavigate } from 'react-router-dom';
+import ShortFooter from '../components/ShortFooter';
+import axios from "axios"
 
-const IconTextBox = ({ icon, title, text }) => (
-  <div className="text-center icon-text-box" style={{ paddingTop: '25px', marginTop: '10px', width: '250px', height: '100px', marginLeft: '10px' }}>
-    <FontAwesomeIcon icon={icon} />
-    <h4>{title}</h4>
-    <p>{text}</p>
-  </div>
-);
+function EventForm() {
+  const navigate = useNavigate();
 
-const EnchantingBlissMenu = () => {
-  const [showCalendar, setShowCalendar] = useState(false);
-  const [selectedDate, setSelectedDate] = useState(new Date());
-  const availableDates = [
-    new Date('2024-03-28'), new Date('2024-03-29'), new Date('2024-03-30'),new Date('2024-04-22'), new Date('2024-04-23'), new Date('2024-04-24')];
-
-  const toggleCalendar = () => {
-    setShowCalendar(!showCalendar);
-  };
-
-  const dayClassName = (date) => {
-    const formattedDate = date.toDateString();
-    const isAvailable = availableDates.some((availableDate) => availableDate.toDateString() === formattedDate);
-    return isAvailable ? 'highlighted-day' : null;
-  };
-
-    return (
-        <div style={{ textAlign: 'center' }}>
-       <Container className="d-flex flex-column align-items-center justify-content-center text-center">
-            <div className="text-row" style={{ marginTop: '40px', color: '#9500AB' }}>
-              <h6>ENCHANTING BLISS CELEBRATION</h6>
-            </div>
-            <div className="text-row" style={{ color: '#9500AB' }}>
-              <h3>2024</h3>
-            </div>
-
-            <div className="calendar-icon" onClick={toggleCalendar}>
-          <FontAwesomeIcon icon={faCalendarAlt} />
-        </div>
-
-        {showCalendar && (
-          <div className="calendar-container">
-            <DatePicker
-            selected={selectedDate}
-            onChange={(date) => setSelectedDate(date)}
-            inline
-            minDate={new Date()}
-            maxDate={new Date('2024-04-31')}
-            dayClassName={dayClassName}
-            />
-          </div>
-        )}
-
-            <div className="flower-vines" style={{ paddingBottom: '30px' }}>
-              <Spinner animation="grow" variant="secondary" />
-              <Spinner animation="grow" variant="secondary" />
-              <Spinner animation="grow" variant="secondary" />
-              <Spinner animation="grow" variant="secondary" />
-            </div>
-          </Container>
-  
-        <Row style={{marginTop: '30px'}}>
-        <Col sm={12} md={6} lg={4} style={{ marginBottom: '30px' }}>
-         <Card style={{ width: '95%', height:'102%', backgroundColor: '#CD7F32', border: '2px solid #a600a6' }}>
-          <Card.Body>
-            <Card.Title style={{color: '#A90000'}}>
-              <b>BRONZE</b>
-            </Card.Title>
-            <p style={{ fontSize: '16px', textAlign: 'center'  }}><b>Welcome drink</b></p>
-            <p style={{ fontSize: '16px', textAlign: 'center'  }}><b>Lemon Thais Fishcake with chilli Dizzle & salad</b></p>
-            <p style={{ fontSize: '16px', textAlign: 'center'  }}><b>Two appetizers</b></p>
-            <p style={{ fontSize: '16px', textAlign: 'center'  }}><b>Three types of Salad</b></p>
-            <p style={{ fontSize: '16px', textAlign: 'center'  }}><b>Two meat dishes (chicken/beef/pork)</b></p>
-            <p style={{ fontSize: '16px', textAlign: 'center'  }}><b>Two fish dishes</b></p>
-            <p style={{ fontSize: '16px', textAlign: 'center'  }}><b>Three vegetable dishes</b></p>
-            <p style={{ fontSize: '16px', textAlign: 'center'  }}><b>Choose three from a selection of rice / noodles / pasta dishes</b></p>
-            <p style={{ fontSize: '16px', textAlign: 'center'  }}><b>Five types of dessert</b></p>
-            <h4 style={{color: '#FD0000 '}}>LKR 6,200</h4>
-            <h6>per person</h6>
-            <p>terms and conditions apply*</p>
-          </Card.Body>
-         </Card>
-        </Col>
-
-        <Col sm={12} md={6} lg={4} style={{ marginBottom: '20px' }}>
-        <Card style={{ width: '95%', height:'100%', backgroundColor: '#C0C0C0', border: '2px solid #a600a6' }}>
-          <Card.Body>
-          <Card.Title style={{color: '#A90000'}}>
-              <b>SILVER</b>
-            </Card.Title>
-            <p style={{ fontSize: '16px', textAlign: 'center'  }}><b>Welcome drink</b></p>
-            <p style={{ fontSize: '16px', textAlign: 'center'  }}><b>Lemon Thais Fishcake with chilli Dizzle & salad</b></p>
-            <p style={{ fontSize: '16px', textAlign: 'center'  }}><b>Two appetizers</b></p>
-            <p style={{ fontSize: '16px', textAlign: 'center'  }}><b>Four types of Salad</b></p>
-            <p style={{ fontSize: '16px', textAlign: 'center'  }}><b>Three meat dishes (chicken/beef/pork) </b></p>
-            <p style={{ fontSize: '16px', textAlign: 'center'  }}><b>Two fish dishes</b></p>
-            <p style={{ fontSize: '16px', textAlign: 'center'  }}><b>Four vegetable dishes</b></p>
-            <p style={{ fontSize: '16px', textAlign: 'center'  }}><b>Choose three from a selection of rice / noodles / pasta dishes</b></p>
-            <p style={{ fontSize: '16px', textAlign: 'center'  }}><b>Six types of dessert</b></p>
-            <h4 style={{color: '#FD0000 '}}>LKR 6,800</h4>
-            <h6>per person</h6>
-            <p>terms and conditions apply*</p>
-          </Card.Body>
-        </Card>
-        </Col>
-        <Col sm={12} md={6} lg={4} style={{ marginBottom: '20px' }}>
-        <Card style={{ width: '95%', height:'100%', backgroundColor: '#d4af37', border: '2px solid #a600a6' }}>
-          <Card.Body>
-          <Card.Title style={{color: '#A90000'}}>
-              <b>GOLD</b>
-            </Card.Title>
-            <p style={{ fontSize: '16px', textAlign: 'center'  }}><b>Welcome drink</b></p>
-            <p style={{ fontSize: '16px', textAlign: 'center'  }}><b>Lemon Thais Fishcake with chilli Dizzle & salad</b></p>
-            <p style={{ fontSize: '16px', textAlign: 'center'  }}><b>Three appetizers</b></p>
-            <p style={{ fontSize: '16px', textAlign: 'center'  }}><b>Six types of Salad</b></p>
-            <p style={{ fontSize: '16px', textAlign: 'center'  }}><b>Three meat dishes (chicken/beef/ pork / mutton) </b></p>
-            <p style={{ fontSize: '16px', textAlign: 'center'  }}><b>Three seafood dishes (fish/prawns / cuttlefish)</b></p>
-            <p style={{ fontSize: '16px', textAlign: 'center'  }}><b>Four vegetable dishes</b></p>
-            <p style={{ fontSize: '16px', textAlign: 'center'  }}><b>Choose three from a selection of rice / noodles / pasta dishes</b></p>
-            <p style={{ fontSize: '16px', textAlign: 'center'  }}><b>Seven types of dessert</b></p>
-            <h4 style={{color: '#FD0000 '}}>LKR 7,000</h4>
-            <h6>per person</h6>
-            <p>terms and conditions apply*</p>
-          </Card.Body>
-        </Card>
-        </Col>
-    </Row>
-    <Container className="d-flex flex-column align-items-center justify-content-center text-center">
-            <div className="text-row" style={{ marginTop: '40px', color: '#9500AB' }}>
-              <h6>CONTACT US</h6>
-            </div>
-            <div className="text-row" style={{ color: '#9500AB' }}>
-              <h3>Enchanting Bliss Celebration</h3>
-            </div>
-
-            <div className="flower-vines" style={{ paddingBottom: '30px' }}>
-              <Spinner animation="grow" variant="secondary" />
-              <Spinner animation="grow" variant="secondary" />
-              <Spinner animation="grow" variant="secondary" />
-              <Spinner animation="grow" variant="secondary" />
-            </div>
-          </Container>
-          <Container className="d-flex flex-column align-items-center justify-content-center text-center" style={{marginBottom: '80px'}}>
-            <div className="d-flex flex-wrap justify-content-center">
-              <div className="mb-3">
-                <IconTextBox icon={faPhone} title="Phone" text="+1 (555) 987-6543" />
-              </div>
-              <div className="mb-3">
-                <IconTextBox icon={faMailBulk} title="Email" text="enchanting.bliss@fantasyinbox.com" />
-              </div>
-              <div className="mb-3">
-                <IconTextBox icon={faLocation} title="Address" text="Enchanted Avenue, Wonderland Woods, Dreamland" />
-              </div>
-              <div className="mb-3">
-                <IconTextBox icon={faGlobe} title="Website" text="enchantingbliss.lk" />
-              </div>
-            </div>
-          </Container>
-      </div>
-    );
-  };
-
-const WeddingMenu = () => {
-  const [showCalendar, setShowCalendar] = useState(false);
-  const [selectedDate, setSelectedDate] = useState(new Date());
-  const availableDates = [ new Date('2024-03-15'), new Date('2024-03-16'), new Date('2024-03-18'), new Date('2024-03-19'), new Date('2024-03-20'), new Date('2024-04-01'), new Date('2024-04-02'), new Date('2024-04-03'), new Date('2024-04-18'), new Date('2024-04-19')];
-
-  const toggleCalendar = () => {
-    setShowCalendar(!showCalendar);
-  };
-  const dayClassName = (date) => {
-    const formattedDate = date.toDateString();
-    const isAvailable = availableDates.some((availableDate) => availableDate.toDateString() === formattedDate);
-    return isAvailable ? 'highlighted-day' : null;
+  const createForm = () => {
+      const id_ = uuid();
+      navigate("/form/" + id_);
   };
 
   return (
-    <div style={{ textAlign: 'center' }}>
-      <Container className="d-flex flex-column align-items-center justify-content-center text-center">
-        <div className="text-row" style={{ marginTop: '40px', color: '#9500AB' }}>
-          <h6>RADIANT LOVE FIESTA</h6>
-        </div>
-        <div className="text-row" style={{ color: '#9500AB' }}>
-          <h3>2024</h3>
-        </div>
-
-        <div className="calendar-icon" onClick={toggleCalendar}>
-          <FontAwesomeIcon icon={faCalendarAlt} />
-        </div>
-
-        {showCalendar && (
-          <div className="calendar-container">
-            <DatePicker
-            selected={selectedDate}
-            onChange={(date) => setSelectedDate(date)}
-            inline
-            minDate={new Date()}
-            maxDate={new Date('2024-04-31')}
-            dayClassName={dayClassName}
-            />
-          </div>
-        )}
-
-            <div className="flower-vines" style={{ paddingBottom: '30px' }}>
-              <Spinner animation="grow" variant="secondary" />
-              <Spinner animation="grow" variant="secondary" />
-              <Spinner animation="grow" variant="secondary" />
-              <Spinner animation="grow" variant="secondary" />
-            </div>
+      <div style={{backgroundColor: 'white'}}>
+          <Container fluid className="header" style={{ backgroundColor: '#4f0176', color: 'white' }}>
+                <Row className="align-items-center justify-content-center flex-column-reverse flex-md-row">
+                    <Col xs={12} md={4} className='header_left text-center'>
+                        <Image src="./logo3.png" alt="Logo" fluid style={{ width: '200px', height: '150px' }} />
+                    </Col>
+                    <Col xs={12} md={4} className='header_name text-center text-md-left'>
+                        <h1>Customization form</h1>
+                    </Col>
+                    <Col xs={12} md={4} className='header_search d-flex justify-content-center justify-content-md-end'>
+                        <FormControl type="text" className="search-input" placeholder="Search..." />
+                        <Button type="submit" className="search-button ml-2">🔍︎</Button>
+                    </Col>
+                </Row>
+            </Container>
+          <Container fluid className="template_section">
+              <Row className="justify-content-center">
+                  <Col xs={12} sm={12} md={10} lg={8} xl={6}>
+                      <div className='template_top'>
+                          <div className='template_left'>
+                              <span style={{ fontSize: "16px", color: "#202124", fontWeight: "bold" }}>Start a New Form</span>
+                          </div>
+                      </div>
+                      <div className='template_body'>
+                          <div className='card' onClick={createForm}>
+                              <img src={blank} alt='Blank Form' className='card_image' />
+                              <p className='card_title'>Blank</p>
+                          </div>
+                          <div className='card' onClick={createForm}>
+                              <img src={wedding} alt='Wedding Menu Form' className='card_image' />
+                              <p className='card_title'>Wedding Menu</p>
+                          </div>
+                          <div className='card' onClick={createForm}>
+                              <img src={party} alt='Party Menu Form' className='card_image' />
+                              <p className='card_title'>Party Menu</p>
+                          </div>
+                          <div className='card' onClick={createForm}>
+                              <img src={partyT} alt='Party Theme Form' className='card_image' />
+                              <p className='card_title'>Party Theme</p>
+                          </div>
+                          <div className='card' onClick={createForm}>
+                              <img src={weddingT} alt='Wedding Theme Form' className='card_image' />
+                              <p className='card_title'>Wedding Theme</p>
+                          </div>
+                          <div className='card' onClick={createForm}>
+                              <img src={workshopT} alt='Workshop Theme Form' className='card_image' />
+                              <p className='card_title'>Workshop Theme</p>
+                          </div>
+                          <div className='card' onClick={createForm}>
+                              <img src={workshopM} alt='Workshop Theme Form' className='card_image' />
+                              <p className='card_title'>Workshop Menu</p>
+                          </div>
+                          <div className='card' onClick={createForm}>
+                              <img src={eventT} alt='Event Theme Form' className='card_image' />
+                              <p className='card_title'>Event Theme</p>
+                          </div>
+                      </div>
+                  </Col>
+              </Row>
+              <div className="text-row" style={{ marginTop: '40px', color: '#9500AB',paddingLeft:"690px" }}>
+                <h6>CUSTOMIZATION</h6>
+              </div>
+                <div className="text-row" style={{ color: '#9500AB' ,paddingLeft:"600px" }}>
+                <h3>Customize To Your Liking</h3>
+                </div>
+                <div className="flower-vines" style={{ paddingBottom: '10px', paddingLeft:"690px"}}>
+                    <Spinner animation="grow" variant="secondary" />
+                    <Spinner animation="grow" variant="secondary" />
+                    <Spinner animation="grow" variant="secondary" />
+                    <Spinner animation="grow" variant="secondary" />
+                </div>
           </Container>
-  
-        <Row style={{marginTop: '30px'}}>
-        <Col sm={12} md={6} lg={4} style={{ marginBottom: '30px' }}>
-         <Card style={{ width: '95%', height:'102%', backgroundColor: '#CD7F32', border: '2px solid #a600a6' }}>
-          <Card.Body>
-            <Card.Title style={{color: '#A90000'}}>
-              <b>BRONZE</b>
-            </Card.Title>
-            <p style={{ fontSize: '16px', textAlign: 'center'  }}><b>Welcome drink</b></p>
-            <p style={{ fontSize: '16px', textAlign: 'center'  }}><b>One soup</b></p>
-            <p style={{ fontSize: '16px', textAlign: 'center'  }}><b>Two appetizers</b></p>
-            <p style={{ fontSize: '16px', textAlign: 'center'  }}><b>Four types of Salad</b></p>
-            <p style={{ fontSize: '16px', textAlign: 'center'  }}><b>Two meat dishes (chicken/beef/pork)</b></p>
-            <p style={{ fontSize: '16px', textAlign: 'center'  }}><b>Two fish dishes</b></p>
-            <p style={{ fontSize: '16px', textAlign: 'center'  }}><b>Three vegetable dishes</b></p>
-            <p style={{ fontSize: '16px', textAlign: 'center'  }}><b>Choose three from a selection of rice / noodles / pasta dishes</b></p>
-            <p style={{ fontSize: '16px', textAlign: 'center'  }}><b>Five types of dessert</b></p>
-            <h4 style={{color: '#FD0000 '}}>LKR 6,800</h4>
-            <h6>per person</h6>
-            <p>terms and conditions apply*</p>
-          </Card.Body>
-         </Card>
-        </Col>
+          <Container fluid className="header" style={{ backgroundColor: 'white', color: 'white' }}>
+                <div className='main_body'>
+                    <div className="mainbody_top">
+                        <div className="mainbody_top_left" style={{ fontSize: "16px", fontWeight: "bold", color: '#9500AB' }}>
+                            Recent forms
+                        </div>
+                    </div>
+                    <div className="mainbody_doc">
+                        
+                            <div className='doc_card'>
+                                <img src={doc_image} alt='Your Document' className='doc_image' />
+                                <div className='doc_card_content' style={{ color: '#000000' }}>
+                                    <h5 style={{ overflow: "ellipsis" }}></h5>
+                                    <h6>Opened 6 Jan 2024</h6>
+                                    <div className='doc_content' style={{ fontSize: "12px", color: "black" }}>
+                                        <div className='content_left'>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                    </div>
 
-        <Col sm={12} md={6} lg={4} style={{ marginBottom: '20px' }}>
-        <Card style={{ width: '95%', height:'100%', backgroundColor: '#C0C0C0', border: '2px solid #a600a6' }}>
-          <Card.Body>
-          <Card.Title style={{color: '#A90000'}}>
-              <b>SILVER</b>
-            </Card.Title>
-            <p style={{ fontSize: '16px', textAlign: 'center'  }}><b>Welcome drink</b></p>
-            <p style={{ fontSize: '16px', textAlign: 'center'  }}><b>One soup</b></p>
-            <p style={{ fontSize: '16px', textAlign: 'center'  }}><b>Two appetizers</b></p>
-            <p style={{ fontSize: '16px', textAlign: 'center'  }}><b>Five types of Salad</b></p>
-            <p style={{ fontSize: '16px', textAlign: 'center'  }}><b>Three meat dishes (chicken/beef/pork) </b></p>
-            <p style={{ fontSize: '16px', textAlign: 'center'  }}><b>Two fish dishes</b></p>
-            <p style={{ fontSize: '16px', textAlign: 'center'  }}><b>Four vegetable dishes</b></p>
-            <p style={{ fontSize: '16px', textAlign: 'center'  }}><b>Choose three from a selection of rice / noodles / pasta dishes</b></p>
-            <p style={{ fontSize: '16px', textAlign: 'center'  }}><b>Six types of dessert</b></p>
-            <h4 style={{color: '#FD0000 '}}>LKR 7,300</h4>
-            <h6>per person</h6>
-            <p>terms and conditions apply*</p>
-          </Card.Body>
-        </Card>
-        </Col>
-        <Col sm={12} md={6} lg={4} style={{ marginBottom: '20px' }}>
-        <Card style={{ width: '95%', height:'100%', backgroundColor: '#d4af37', border: '2px solid #a600a6' }}>
-          <Card.Body>
-          <Card.Title style={{color: '#A90000'}}>
-              <b>GOLD</b>
-            </Card.Title>
-            <p style={{ fontSize: '16px', textAlign: 'center'  }}><b>Welcome drink</b></p>
-            <p style={{ fontSize: '16px', textAlign: 'center'  }}><b>One soup</b></p>
-            <p style={{ fontSize: '16px', textAlign: 'center'  }}><b>Three appetizers</b></p>
-            <p style={{ fontSize: '16px', textAlign: 'center'  }}><b>Eight types of Salad</b></p>
-            <p style={{ fontSize: '16px', textAlign: 'center'  }}><b>Three meat dishes (chicken/beef/ pork / mutton) </b></p>
-            <p style={{ fontSize: '16px', textAlign: 'center'  }}><b>Three seafood dishes (fish/prawns / cuttlefish)</b></p>
-            <p style={{ fontSize: '16px', textAlign: 'center'  }}><b>Four vegetable dishes</b></p>
-            <p style={{ fontSize: '16px', textAlign: 'center'  }}><b>Choose three from a selection of rice / noodles / pasta dishes</b></p>
-            <p style={{ fontSize: '16px', textAlign: 'center'  }}><b>Seven types of dessert</b></p>
-            <h4 style={{color: '#FD0000 '}}>LKR 7,600</h4>
-            <h6>per person</h6>
-            <p>terms and conditions apply*</p>
-          </Card.Body>
-        </Card>
-        </Col>
-    </Row>
-    <Container className="d-flex flex-column align-items-center justify-content-center text-center">
-            <div className="text-row" style={{ marginTop: '40px', color: '#9500AB' }}>
-              <h6>CONTACT US</h6>
+                </div>
+                <div className="text-row" style={{ marginTop: '40px', color: '#9500AB',paddingLeft:"690px" }}>
+              <h6>RECENT FORM</h6>
             </div>
-            <div className="text-row" style={{ color: '#9500AB' }}>
-              <h3>Radiant Love Fiesta</h3>
+            <div className="text-row" style={{ color: '#9500AB' ,paddingLeft:"580px" }}>
+              <h3>The Form You Customized</h3>
             </div>
-
-            <div className="flower-vines" style={{ paddingBottom: '30px' }}>
-              <Spinner animation="grow" variant="secondary" />
-              <Spinner animation="grow" variant="secondary" />
-              <Spinner animation="grow" variant="secondary" />
-              <Spinner animation="grow" variant="secondary" />
-            </div>
-          </Container>
-          <Container className="d-flex flex-column align-items-center justify-content-center text-center" style={{marginBottom: '80px'}}>
-            <div className="d-flex flex-wrap justify-content-center">
-              <div className="mb-3">
-                <IconTextBox icon={faPhone} title="Phone" text="+1 (555) 123-4567" />
-              </div>
-              <div className="mb-3">
-                <IconTextBox icon={faMailBulk} title="Email" text="radiant.love@emailmagic.com" />
-              </div>
-              <div className="mb-3">
-                <IconTextBox icon={faLocation} title="Address" text="Celestial Lane, Galaxy Gardens, Stardust City" />
-              </div>
-              <div className="mb-3">
-                <IconTextBox icon={faGlobe} title="Website" text="radiantlove.com" />
-              </div>
-            </div>
-          </Container>
+                <div className="flower-vines" style={{ paddingBottom: '20px', paddingLeft:"690px" }}>
+                    <Spinner animation="grow" variant="secondary" />
+                    <Spinner animation="grow" variant="secondary" />
+                    <Spinner animation="grow" variant="secondary" />
+                    <Spinner animation="grow" variant="secondary" />
+                </div>
+            </Container>
+          <ShortFooter />
       </div>
-    );
-  };
-
-
-function JustifiedExample() {
-  const [activeTab, setActiveTab] = useState("Radiant Love Fiesta");
-
-  const handleTabChange = (tab) => {
-    setActiveTab(tab);
-  };
-
-  return (
-    <div>
-      <Container style={{ marginTop: '30px' }}>
-        <Tabs
-          defaultActiveKey={activeTab}
-          id="justify-tab-example"
-          className="mb-3 text-center"
-          justify
-          onSelect={handleTabChange}
-        >
-          <Tab eventKey="Radiant Love Fiesta" title={<span style={{ color: '#a600a6', fontSize: '0.8rem' }}>Radiant Love Fiesta</span>}>
-            {activeTab === "Radiant Love Fiesta" && <WeddingMenu />}
-          </Tab>
-          <Tab
-            eventKey="Enchanting Bliss Celebration"
-            title={<span style={{ color: '#a600a6', fontSize: '0.8rem' }}>Enchanting Bliss</span>}
-          >
-            {activeTab === "Enchanting Bliss Celebration" && <EnchantingBlissMenu />}
-          </Tab>
-          <Tab eventKey="Disco Delight Soiree" title={<span style={{ color: '#a600a6', fontSize: '0.8rem'  }}>Disco Delight Soiree </span>}>
-          <div className="page-container">
-        <Container className="d-flex flex-column align-items-center justify-content-center text-center">
-          <div className="text-row" style={{ marginTop: '60px', color: '#9500AB' }}>
-            <h6>DISCO DELIGHT SOIREE</h6>
-          </div>
-          <div className="text-row" style={{ color: '#9500AB' }}>
-            <h3>2024</h3>
-          </div>
-          <div className="flower-vines" style={{ paddingBottom: '30px' }}>
-          <Spinner animation="border" variant="danger" />
-          <Spinner animation="border" variant="danger" />
-          <Spinner animation="border" variant="danger" />
-          <Spinner animation="border" variant="danger" />
-          </div>
-          <div className="upcoming-event-text" style={{color: 'white'}}>
-            <p>Upcoming Event: Disco Delight Soiree</p>
-            <p>Date: [Upcoming Event Date]</p>
-            <p>Location: [Upcoming Event Location]</p>
-          </div>
-        </Container>
-      </div>
-          </Tab>
-          <Tab eventKey="Electric Euphoria Fiesta Content" title={<span style={{ color: '#a600a6', fontSize: '0.8rem'  }}>Electric Euphoria Fiesta </span>}>
-          <div className="page-container">
-        <Container className="d-flex flex-column align-items-center justify-content-center text-center">
-          <div className="text-row" style={{ marginTop: '60px', color: '#9500AB' }}>
-            <h6>ELECTRIC EUPHORIA FIESTA </h6>
-          </div>
-          <div className="text-row" style={{ color: '#9500AB' }}>
-            <h3>2024</h3>
-          </div>
-          <div className="flower-vines" style={{ paddingBottom: '30px' }}>
-          <Spinner animation="border" variant="danger" />
-          <Spinner animation="border" variant="danger" />
-          <Spinner animation="border" variant="danger" />
-          <Spinner animation="border" variant="danger" />
-          </div>
-          <div className="upcoming-event-text" style={{color: 'white'}}>
-            <p>Electric Euphoria Fiesta </p>
-            <p>Date: [Upcoming Event Date]</p>
-            <p>Location: [Upcoming Event Location]</p>
-          </div>
-        </Container>
-      </div>
-          </Tab>
-          <Tab eventKey="Hearts of Hope Gala " title={<span style={{ color: '#a600a6', fontSize: '0.8rem'  }}>Hearts of Hope Gala </span>}>
-          <div className="page-container">
-        <Container className="d-flex flex-column align-items-center justify-content-center text-center">
-          <div className="text-row" style={{ marginTop: '60px', color: '#9500AB' }}>
-            <h6>HEARTS OF HOPE GALA </h6>
-          </div>
-          <div className="text-row" style={{ color: '#9500AB' }}>
-            <h3>2024</h3>
-          </div>
-          <div className="flower-vines" style={{ paddingBottom: '30px' }}>
-          <Spinner animation="border" variant="danger" />
-          <Spinner animation="border" variant="danger" />
-          <Spinner animation="border" variant="danger" />
-          <Spinner animation="border" variant="danger" />
-          </div>
-          <div className="upcoming-event-text" style={{color: 'white'}}>
-            <p>Hearts of Hope Gala </p>
-            <p>Date: [Upcoming Event Date]</p>
-            <p>Location: [Upcoming Event Location]</p>
-          </div>
-        </Container>
-      </div> 
-          </Tab>
-          <Tab eventKey="Unity Upliftment Ball " title={<span style={{ color: '#a600a6', fontSize: '0.8rem'  }}>Unity Upliftment Ball </span>}>
-          <div className="page-container">
-        <Container className="d-flex flex-column align-items-center justify-content-center text-center">
-          <div className="text-row" style={{ marginTop: '60px', color: '#9500AB' }}>
-            <h6>UNITY UPLIFTMENT BALL</h6>
-          </div>
-          <div className="text-row" style={{ color: '#9500AB' }}>
-            <h3>2024</h3>
-          </div>
-          <div className="flower-vines" style={{ paddingBottom: '30px' }}>
-          <Spinner animation="border" variant="danger" />
-          <Spinner animation="border" variant="danger" />
-          <Spinner animation="border" variant="danger" />
-          <Spinner animation="border" variant="danger" />
-          </div>
-          <div className="upcoming-event-text" style={{color: 'white'}}>
-            <p>Unity Upliftment Ball</p>
-            <p>Date: [Upcoming Event Date]</p>
-            <p>Location: [Upcoming Event Location]</p>
-          </div>
-        </Container>
-      </div> 
-          </Tab>
-          <Tab eventKey="Innovate ICT Intensive " title={<span style={{ color: '#a600a6', fontSize: '0.8rem'  }}>Innovate ICT Intensive</span>}>
-          <div className="page-container">
-        <Container className="d-flex flex-column align-items-center justify-content-center text-center">
-          <div className="text-row" style={{ marginTop: '60px', color: '#9500AB' }}>
-            <h6>INNOVATE ICT INTENSIVE</h6>
-          </div>
-          <div className="text-row" style={{ color: '#9500AB' }}>
-            <h3>2024</h3>
-          </div>
-          <div className="flower-vines" style={{ paddingBottom: '30px' }}>
-          <Spinner animation="border" variant="danger" />
-          <Spinner animation="border" variant="danger" />
-          <Spinner animation="border" variant="danger" />
-          <Spinner animation="border" variant="danger" />
-          </div>
-          <div className="upcoming-event-text" style={{color: 'white'}}>
-            <p>EInnovate ICT Intensive</p>
-            <p>Date: [Upcoming Event Date]</p>
-            <p>Location: [Upcoming Event Location]</p>
-          </div>
-        </Container>
-      </div> 
-          </Tab>
-        </Tabs>
-      </Container>
-    </div>
   );
 }
+export default EventForm;
 
-export default JustifiedExample;
+
+
+
+
+
+
+
+
