@@ -36,7 +36,7 @@ function Template() {
       <Container fluid className="template_section">
         {topic.map((topic, index) => (
           <Container key={index} style={{ marginTop: '30px' }}>
-            <h4 style={{ marginBottom: '30px' }}><b>{topic.name}</b></h4>
+            <h4 style={{ marginBottom: '30px', color: '#9500AB' }}><b>{topic.name}</b></h4>
             <Card style={{ width: '100%', backgroundColor: 'white', padding: '10px' }}>
               <Row>
                 <Col xs={12} md={4}>
