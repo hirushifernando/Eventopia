@@ -125,7 +125,7 @@ export const EventForm = () => {
           <Form.Range min={0} max={100} />
         </Form.Group>
         <div className="save-changes-button-container" style={{ marginTop: '40px', textAlign: 'center', marginBottom: '40px' }}>
-                <button type="submit" className="save-button" style={{ backgroundColor: '#c6c6f5', border: '2px solid #a600a6', borderRadius: '10px', padding: '10px 100px' }}>
+                <button type="submit" className="save-button" style={{ backgroundColor: '#a600a6', border: '2px solid #a600a6', borderRadius: '10px', padding: '10px 100px' }}>
                   SUBMIT NOW
                 </button>
               </div>

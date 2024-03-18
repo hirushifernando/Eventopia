@@ -49,7 +49,7 @@ function Template() {
                 </Col>
                 <div style={{ textAlign: 'center', marginTop: '10px' }}>
                 <a href="/event" target="_blank" style={{ textDecoration: 'none' }}>
-                  <button style={{ backgroundColor: '#2e2e6b',  color: 'white', border: 'none', padding: '5px 10px', borderRadius: '10px' }}>
+                  <button  className='formbt' style={{color: 'black', border: 'none', padding: '5px 10px', borderRadius: '10px' }}>
                     Customize Form
                   </button>
                 </a>
