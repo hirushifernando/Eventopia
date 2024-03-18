@@ -12,7 +12,14 @@ app.use(express.json());
 app.use(cors());
 
 
-mongoose.connect("mongodb://127.0.0.1:27017/user")
+mongoose.connect("mongodb+srv://deshan20221509:C5232DFsoKAQeu2X@cluster0.g8hdg9b.mongodb.net/eventplannerdb?retryWrites=true&w=majority", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+}).then(() => {
+  console.log("Connected to MongoDB Atlas");
+}).catch(err => {
+  console.error("Error connecting to MongoDB Atlas:", err);
+});
 
 app.post('/setting', (req, res) => {
     RegistrationModel.create(req.body)
@@ -54,7 +61,7 @@ app.post('/login',(req, res) =>{
                 res.json("The password is incorrect")
             }
         }else {
-            res.json("No record existed. Please create a account")
+            res.json("No record existed. Please create a  new account")
         }
     })
 })

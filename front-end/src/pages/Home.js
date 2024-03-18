@@ -209,7 +209,7 @@ const Loading = () => {
           {scrolled && (
             <Button
               className="scroll-to-top-button"
-              variant="primary"
+              variant="info"
               onClick={scrollToTop}
             >
             ▲

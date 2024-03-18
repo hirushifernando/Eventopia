@@ -32,6 +32,7 @@ function App() {
           <Route path="dashboard" element={<Dashboard/>} />
           <Route path="eventform" element={<EventForm/>} />
           <Route path="customize" element={<Customize/>} />
+          <Route path="event" element={<EventDetails/>} />
           <Route path="/form/:id" element={
           <React.Fragment>
             <QuestionForm />
@@ -39,7 +40,7 @@ function App() {
           </React.Fragment>
         } />
         <Route path="content" element={<Content/>} />
-       <Route path="event" element={<EventDetails/>} />
+        
         </Routes>
       </Router>
     </div>

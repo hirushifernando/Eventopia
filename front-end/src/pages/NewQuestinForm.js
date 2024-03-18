@@ -11,12 +11,10 @@ import FilterNoneIcon from '@material-ui/icons/FilterNone';
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 import OndemandVideoIcon from '@material-ui/icons/OndemandVideo';
 import TextFieldsIcon from '@material-ui/icons/TextFields';
-import { BsFileText } from 'react-icons/bs';
 import Accordion from '@material-ui/core/Accordion';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import Button from '@material-ui/core/Button';
-import {FcRightUp} from "react-icons/fc";
 import CloseIcon from "@material-ui/icons/Close";
 import Radio from '@material-ui/core/Radio';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -30,14 +28,14 @@ import "./newQuestionform.css"
 function Question_form() {
     const [questions, setQuestions] = useState(
         [{
-            questionText: "Meat dishes",
+            questionText: "Please type your question",
             questionType: "radio",
             options: [ // Corrected property name from 'option' to 'options'
-                { optionText: "chicken" },
-                { optionText: "beef" },
-                { optionText: "pork" },
-                { optionText: "mutton" },
-                { optionText: "lamb" }
+                { optionText: "Answer 1" },
+                { optionText: "Answer 2" },
+                { optionText: "Answer 3" },
+                { optionText: "Answer 4" },
+                { optionText: "Answer 5" }
             ],
             open: true,
             required: false
