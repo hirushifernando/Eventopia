@@ -13,8 +13,9 @@ import  Customize  from './pages/Customize';
 import NewQuestionForm from './pages/NewQuestinForm'; // Correcting the import
 import  QuestionForm  from './pages/QuestionForm';
 import  Content  from './pages/Content';
-
+import Userform from './pages/Userform';
 import EventDetails  from './pages/EventDetails';
+import Centeredtabs from './pages/Tabs'; 
 
 
 
@@ -36,10 +37,12 @@ function App() {
           <Route path="/form/:id" element={
           <React.Fragment>
             <QuestionForm />
-            <NewQuestionForm /> {/* Corrected component name */}
+            <Centeredtabs />
+             {/* Corrected component name */}
           </React.Fragment>
         } />
         <Route path="content" element={<Content/>} />
+        <Route path="/response" element={<Userform/>} />
         
         </Routes>
       </Router>

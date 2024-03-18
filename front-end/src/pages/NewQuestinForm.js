@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, { useState, useEffect} from 'react';
 import CropOriginalIcon from '@material-ui/icons/CropOriginal';
 import Select from "@material-ui/core/Select";
 import Switch from "@material-ui/core/Switch";
@@ -22,10 +22,15 @@ import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import DragIndicatorIcon from '@material-ui/icons/DragIndicator';
 import { Spinner } from 'react-bootstrap'; // Example import if using React Bootstrap Spinner
 import "./newQuestionform.css"
-
-
+import axios from "axios";
+import { useParams } from 'react-router-dom';
+import { actionTypes } from './Reducer';
+import {useStateValue} from './StateProvider';
 
 function Question_form() {
+    const {id} =useParams();
+    const [{}, dispatch] = useStateValue();
+    
     const [questions, setQuestions] = useState(
         [{
             questionText: "Please type your question",
@@ -41,6 +46,33 @@ function Question_form() {
             required: false
         }]
     );
+    const [documentName, setDocName] = useState("untitled Document");
+    const [documentDescription, setDocDesc] = useState("Add Description");
+    
+    useEffect(()=>{
+        async function data_adding(){
+            var request = await axios.get(`http://localhost:8002/data/${id}`);
+            var question_data = request.data.questions;
+            console.log(question_data)
+            var doc_name=request.data.document_name
+            var doc_descrip = request.data.doc_desc
+            console.log(doc_name+" "+doc_descrip)
+            setDocName (doc_name)
+            setDocDesc (doc_descrip)
+            setQuestions (question_data)
+            dispatch({
+                type: actionTypes.SET_DOC_NAME,
+                doc_name: doc_name})
+            dispatch({
+                type: actionTypes.SET_DOC_DESC,
+                doc_desc: doc_descrip})
+            dispatch({
+                type: actionTypes.SET_QUESTIONS,
+                questions: question_data})
+        }
+        data_adding()
+    },[])
+
     function changeQuestion(text,i){
         var newQuestion = [...questions];
         newQuestion[i].questionText = text;
@@ -138,7 +170,23 @@ function Question_form() {
             }
         }setQuestions(qs);
     }
-    
+    function commitToDB(){
+        dispatch({
+            type:actionTypes.SET_QUESTIONS,
+            questions:questions
+        })
+        axios.post(`http://localhost:8002/question_form/${id}` ,{
+            "document_name": documentName,
+            "doc_desc": documentDescription,
+            "questions": questions,
+        })
+        .then(response => {
+            console.log("Data saved successfully:", response.data);
+        })
+        .catch(error => {
+            console.error("Error saving data:", error);
+        });
+    }
     function questionsUI() {
     return questions.map((ques, i) => {
         return (
@@ -278,8 +326,8 @@ function Question_form() {
         <div className='section'>
             <div className='question_title_section'>
                 <div className='question_form_top'>
-                    <input type='text' className='question_form_top_name' style={{color:"black"}} placeholder='Untitled document'></input>
-                    <input type='text' className='question_form_top_desc' placeholder='Form Description'></input>
+                    <input type='text' className='question_form_top_name' style={{color:"black"}} placeholder='Untitled document' onChange={(e)=>{setDocName(e.target.value)}}></input>
+                    <input type='text' className='question_form_top_desc' placeholder='Form Description' onChange={(e)=>{setDocDesc(e.target.value)}}></input>
                 </div>
             </div>
 
@@ -297,7 +345,9 @@ function Question_form() {
                     )}
                 </Droppable>
             </DragDropContext>
-           
+            <div className='save_form'>
+                <Button variant='contained' color='primary' onClick={commitToDB} style={{fontSize:"14px"}}>Save</Button>
+            </div> 
         </div>
     </div>
    </div>

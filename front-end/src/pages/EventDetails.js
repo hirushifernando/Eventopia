@@ -13,19 +13,43 @@ import workshopT from "../images/p5.jpg";
 import workshopM from "../images/p6.jpg";
 import eventT from "../images/p7.jpg";
 import uuid from "react-uuid";
-import doc_image from "../images/p3.jpg";
+import doc_image from "../images/recent.png";
 import { useNavigate } from 'react-router-dom';
 import ShortFooter from '../components/ShortFooter';
 import axios from "axios"
 
 function EventForm() {
   const navigate = useNavigate();
+  function navigate_to(docname){
+    var fname=docname.split(".");
+    navigate("/form/" + fname[0])
 
-  const createForm = () => {
-      const id_ = uuid();
-      navigate("/form/" + id_);
-  };
-
+}
+  
+  const [files,setFiles] = useState([]);
+  async function filenames() {
+    try {
+        var request = await axios.get("http://localhost:8002/get_all_filenames")
+        let filenames = request.data;
+        setFiles(filenames);
+    } catch (error) {
+        console.error("An error occurred while fetching filenames:", error);
+        // Handle the error appropriately (e.g., display an error message to the user)
+    }
+ }
+    filenames()
+    function createForm(){
+        var create_form_id = uuid();
+        console.log(create_form_id);
+        var questions_list = [{questionText:"Question", questionType:"radio", options:[{optionText: "Option 1"}], open:true, required:false}];
+        axios.post(`http://localhost:8002/question_form/${create_form_id}`,{
+            "document_name": "untitled_form",
+            "doc_desc": "Add Description",
+            "questions": questions_list
+        })
+        navigate("/form/" + create_form_id);
+    }
+    
   return (
       <div style={{backgroundColor: 'white'}}>
           <Container fluid className="header" style={{ backgroundColor: '#4f0176', color: 'white' }}>
@@ -107,11 +131,11 @@ function EventForm() {
                         </div>
                     </div>
                     <div className="mainbody_doc">
-                        
-                            <div className='doc_card'>
+                        {files.map((ele) => (
+                            <div className='doc_card' onClick={() => navigate_to(ele)}>
                                 <img src={doc_image} alt='Your Document' className='doc_image' />
                                 <div className='doc_card_content' style={{ color: '#000000' }}>
-                                    <h5 style={{ overflow: "ellipsis" }}></h5>
+                                    <h5 style={{ overflow: "ellipsis" }}>{ele ? ele : "Untitled Doc"}</h5>
                                     <h6>Opened 6 Jan 2024</h6>
                                     <div className='doc_content' style={{ fontSize: "12px", color: "black" }}>
                                         <div className='content_left'>
@@ -119,7 +143,7 @@ function EventForm() {
                                     </div>
                                 </div>
                             </div>
-                        
+                        ))}
                     </div>
 
                 </div>
