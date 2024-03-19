@@ -152,14 +152,17 @@ const ContactUs = () => {
                 </a>
               </div>
               <div className="mb-3">
+              <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
                 <IconTextBox icon={faInstagram} title="Instagram" text="" />
+              </a>
               </div>
               <div className="mb-3">
+              <a href="https://twitter.com/?lang=en" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
                 <IconTextBox icon={faTwitter} title="Twitter" text="" />
+              </a>
               </div>
             </div>
           </Container>
-          <h5  className="d-flex flex-column align-items-center justify-content-center text-center" style={{paddingTop:'20px', color:'#9500AB'}}>  ● ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~  ● </h5>
           <ShortFooter />
         </div>
       )}

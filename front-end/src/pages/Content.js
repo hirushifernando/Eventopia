@@ -285,7 +285,6 @@ function Directory() {
           </Tab>
         </Tabs>
       </Container>
-      <h5  className="d-flex flex-column align-items-center justify-content-center text-center" style={{paddingTop:'20px', color:'#9500AB'}}>  ● ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~  ● </h5>
       <ShortFooter />
     </div>
   );

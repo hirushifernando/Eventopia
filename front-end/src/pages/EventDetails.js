@@ -52,20 +52,7 @@ function EventForm() {
     
   return (
       <div style={{backgroundColor: 'white'}}>
-          <Container fluid className="header" style={{ backgroundColor: '#4f0176', color: 'white' }}>
-                <Row className="align-items-center justify-content-center flex-column-reverse flex-md-row">
-                    <Col xs={12} md={4} className='header_left text-center'>
-                        <Image src="./logo3.png" alt="Logo" fluid style={{ width: '200px', height: '150px' }} />
-                    </Col>
-                    <Col xs={12} md={4} className='header_name text-center text-md-left'>
-                        <h1>Customization form</h1>
-                    </Col>
-                    <Col xs={12} md={4} className='header_search d-flex justify-content-center justify-content-md-end'>
-                        <FormControl type="text" className="search-input" placeholder="Search..." />
-                        <Button type="submit" className="search-button ml-2">🔍︎</Button>
-                    </Col>
-                </Row>
-            </Container>
+        
           <Container fluid className="template_section">
               <Row className="justify-content-center">
                   <Col xs={12} sm={12} md={10} lg={8} xl={6}>
@@ -116,12 +103,6 @@ function EventForm() {
                 <div className="text-row" style={{ color: '#9500AB' ,paddingLeft:"600px" }}>
                 <h3>Customize To Your Liking</h3>
                 </div>
-                <div className="flower-vines" style={{ paddingBottom: '10px', paddingLeft:"690px"}}>
-                    <Spinner animation="grow" variant="secondary" />
-                    <Spinner animation="grow" variant="secondary" />
-                    <Spinner animation="grow" variant="secondary" />
-                    <Spinner animation="grow" variant="secondary" />
-                </div>
           </Container>
           <Container fluid className="header" style={{ backgroundColor: 'white', color: 'white' }}>
                 <div className='main_body'>
@@ -153,12 +134,6 @@ function EventForm() {
             <div className="text-row" style={{ color: '#9500AB' ,paddingLeft:"580px" }}>
               <h3>The Form You Customized</h3>
             </div>
-                <div className="flower-vines" style={{ paddingBottom: '20px', paddingLeft:"690px" }}>
-                    <Spinner animation="grow" variant="secondary" />
-                    <Spinner animation="grow" variant="secondary" />
-                    <Spinner animation="grow" variant="secondary" />
-                    <Spinner animation="grow" variant="secondary" />
-                </div>
             </Container>
           <ShortFooter />
       </div>

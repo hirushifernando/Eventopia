@@ -16,7 +16,7 @@ import  Content  from './pages/Content';
 import Userform from './pages/Userform';
 import EventDetails  from './pages/EventDetails';
 import Centeredtabs from './pages/Tabs'; 
-
+import  Requre  from './pages/Requre';
 
 
 function App() {
@@ -43,7 +43,7 @@ function App() {
         } />
         <Route path="content" element={<Content/>} />
         <Route path="/response" element={<Userform/>} />
-        
+        <Route path="req" element={<Requre/>} />
         </Routes>
       </Router>
     </div>
