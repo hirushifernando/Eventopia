@@ -194,9 +194,17 @@ const [result, setResult] = useState('');
         <img src='dash6.jpg' alt="Description of the image" style={{
           width: '100%', // Example width
           height: '350px', // Example height, auto will maintain aspect ratio
-          filter: 'brightness(0.6)'
+          filter: 'brightness(0.8)'
         }} />
-        <Container style={{backgroundColor:'#b5b5ef', border:'2px solid', marginTop: '30px'}}>
+        <Container className="d-flex flex-column align-items-center justify-content-center text-center">
+            <div className="text-row" style={{ marginTop: '30px', color: '#9500AB' }}>
+              <h3>DASHBOARD</h3>
+            </div>
+            <div className="text-row" style={{ color: '#9500AB' }}>
+              <h6>Your Event Details</h6>
+            </div>
+          </Container>
+        <Container style={{borderRadius: '30px', border:'2px solid', marginTop: '30px'}}>
         <Container style={{ marginTop: '30px', padding:'10px 10px' }}>
         <h4 style={{marginBottom: '30px', color: '#9500AB' }}><b>Calendar & Time</b></h4>
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
@@ -391,22 +399,7 @@ const [result, setResult] = useState('');
         </div>
         </Container>
         </Container>
-          <Container className="d-flex flex-column align-items-center justify-content-center text-center">
-            <div className="text-row" style={{ marginTop: '60px', color: '#9500AB' }}>
-              <h3>DASHBOARD</h3>
-            </div>
-            <div className="text-row" style={{ color: '#9500AB' }}>
-              <h6>Your Event Details</h6>
-            </div>
-
-            <div className="flower-vines" style={{ paddingBottom: '5px' }}>
-              <Spinner animation="grow" variant="secondary" />
-              <Spinner animation="grow" variant="secondary" />
-              <Spinner animation="grow" variant="secondary" />
-              <Spinner animation="grow" variant="secondary" />
-            </div>
-          </Container>
-          
+        <h5  className="d-flex flex-column align-items-center justify-content-center text-center" style={{paddingTop:'20px', color:'#9500AB'}}>  ● ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~  ● </h5>
         <ShortFooter />
     </div>
   )

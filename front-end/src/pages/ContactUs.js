@@ -49,17 +49,10 @@ const ContactUs = () => {
           <NavComp />
           <Container className="d-flex flex-column align-items-center justify-content-center text-center">
             <div className="text-row" style={{ marginTop: '40px', color: '#9500AB' }}>
-              <h6>CONTACT US</h6>
+              <h3>CONTACT US</h3>
             </div>
             <div className="text-row" style={{ color: '#9500AB' }}>
-              <h3>The Eventopia</h3>
-            </div>
-
-            <div className="flower-vines" style={{ paddingBottom: '30px' }}>
-              <Spinner animation="grow" variant="secondary" />
-              <Spinner animation="grow" variant="secondary" />
-              <Spinner animation="grow" variant="secondary" />
-              <Spinner animation="grow" variant="secondary" />
+              <h6>The Eventopia</h6>
             </div>
           </Container>
           <Container className="d-flex flex-column align-items-center justify-content-center text-center">
@@ -87,13 +80,6 @@ const ContactUs = () => {
             </div>
             <div className="text-row" style={{ color: '#9500AB' }}>
               <h3>Give Your Feedback</h3>
-            </div>
-
-            <div className="flower-vines" style={{ paddingBottom: '30px' }}>
-              <Spinner animation="grow" variant="secondary" />
-              <Spinner animation="grow" variant="secondary" />
-              <Spinner animation="grow" variant="secondary" />
-              <Spinner animation="grow" variant="secondary" />
             </div>
           </Container>
           <div
@@ -157,13 +143,6 @@ const ContactUs = () => {
             <div className="text-row" style={{ color: '#9500AB' }}>
               <h3>Social Media</h3>
             </div>
-
-            <div className="flower-vines" style={{ paddingBottom: '30px' }}>
-              <Spinner animation="grow" variant="secondary" />
-              <Spinner animation="grow" variant="secondary" />
-              <Spinner animation="grow" variant="secondary" />
-              <Spinner animation="grow" variant="secondary" />
-            </div>
           </Container>
           <Container className="d-flex flex-column align-items-center justify-content-center text-center">
             <div className="d-flex flex-wrap justify-content-center">
@@ -180,6 +159,7 @@ const ContactUs = () => {
               </div>
             </div>
           </Container>
+          <h5  className="d-flex flex-column align-items-center justify-content-center text-center" style={{paddingTop:'20px', color:'#9500AB'}}>  ● ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~  ● </h5>
           <ShortFooter />
         </div>
       )}

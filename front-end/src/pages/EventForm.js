@@ -40,15 +40,8 @@ export const EventForm = () => {
             <div className="text-row" style={{ color: '#9500AB' }}>
               <h6>Previous Event Details</h6>
             </div>
-
-            <div className="flower-vines" style={{ paddingBottom: '10px' }}>
-              <Spinner animation="grow" variant="secondary" />
-              <Spinner animation="grow" variant="secondary" />
-              <Spinner animation="grow" variant="secondary" />
-              <Spinner animation="grow" variant="secondary" />
-            </div>
           </Container>
-          <Container style={{ border: '2px solid #9500AB', borderRadius: '20px' }}>
+          <Container style={{ border: '3px solid #9500AB', borderRadius: '30px'}}>
           <Form.Group as={Col} controlId="formGridState" style={{ marginTop: '30px', paddingLeft: '10px', paddingRight: '10px' }}>
           <Form.Label>Event Type:</Form.Label>
           <Form.Select defaultValue="Choose...">
@@ -62,7 +55,7 @@ export const EventForm = () => {
         </Form.Group>
         <Form.Group as={Col} controlId="formGridCalendar" style={{ marginTop: '30px', paddingLeft: '10px', paddingRight: '10px' }}>
           <Form.Label>Event Date:</Form.Label>
-          <Form.Control type="date" placeholder="Select date" />
+          <Form.Control type="date" placeholder="Select date"  />
         </Form.Group>
         <Form.Group as={Col} controlId="formGridLocation" style={{ marginTop: '30px', paddingLeft: '10px', paddingRight: '10px' }}>
           <Form.Label>Event Location:</Form.Label>
@@ -135,6 +128,7 @@ export const EventForm = () => {
                 </button>
               </div>
           </Container>
+          <h5  className="d-flex flex-column align-items-center justify-content-center text-center" style={{paddingTop:'20px', color:'#9500AB'}}>  ● ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~  ● </h5>
           <ShortFooter />
     </div>
     
