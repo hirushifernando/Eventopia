@@ -3,8 +3,10 @@ import { Spinner, Container } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavComp from '../components/NavComp';
 import backgroundImage from './logo3.png';
+
 import { Button, Card  } from 'react-bootstrap'; // Imported Button from react-bootstrap
 import ListGroup from 'react-bootstrap/ListGroup';
+
 
 
 const ContactUs = () => {
@@ -51,6 +53,7 @@ const ContactUs = () => {
           <NavComp />
           <div style={{ width: '0', height: '0' }} id="VG_OVERLAY_CONTAINER">
           </div>
+
           <img src='re3.jpg' alt="Description of the image" style={{
           width: '100%', // Example width
           height: '350px', // Example height, auto will maintain aspect ratio
@@ -69,6 +72,7 @@ const ContactUs = () => {
              
         </Card>
         </div>
+
         </div>
       )}
     </div>
@@ -76,4 +80,6 @@ const ContactUs = () => {
 };
 
 export default ContactUs;
+
+
 
