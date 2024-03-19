@@ -53,6 +53,11 @@ function Directory() {
   return (
     <div>
       <NavComp />
+      <img src='dir2.jpg' alt="Description of the image" style={{
+          width: '100%', // Example width
+          height: '450px', // Example height, auto will maintain aspect ratio
+          filter: 'brightness(0.6)'
+        }} />
       <Container style={{ marginTop: '30px' }}>
         <Tabs defaultActiveKey="home" id="justify-tab-example" className="mb-3" justify>
           <Tab eventKey="home" title={<span style={{ color: '#a600a6' }}>Venue Coordination</span>}>

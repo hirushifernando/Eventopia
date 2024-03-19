@@ -28,15 +28,20 @@ export const EventForm = () => {
   return (
     <div>
         <NavComp />
+        <img src='check1.jpg' alt="Description of the image" style={{
+          width: '100%', // Example width
+          height: '400px', // Example height, auto will maintain aspect ratio
+          filter: 'brightness(0.6)'
+        }} />
         <Container className="d-flex flex-column align-items-center justify-content-center text-center">
-            <div className="text-row" style={{ marginTop: '60px', color: '#9500AB' }}>
+            <div className="text-row" style={{ marginTop: '30px', color: '#9500AB' }}>
               <h3>PREMADE FORM</h3>
             </div>
             <div className="text-row" style={{ color: '#9500AB' }}>
               <h6>Previous Event Details</h6>
             </div>
 
-            <div className="flower-vines" style={{ paddingBottom: '30px' }}>
+            <div className="flower-vines" style={{ paddingBottom: '10px' }}>
               <Spinner animation="grow" variant="secondary" />
               <Spinner animation="grow" variant="secondary" />
               <Spinner animation="grow" variant="secondary" />

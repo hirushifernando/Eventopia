@@ -191,12 +191,18 @@ const [result, setResult] = useState('');
   return (
     <div>
         <NavComp/>
-        <Container style={{ marginTop: '30px' }}>
-        <h4 style={{ marginTop: '30px', marginBottom: '30px', color: '#9500AB' }}><b>Calendar & Time</b></h4>
+        <img src='dash6.jpg' alt="Description of the image" style={{
+          width: '100%', // Example width
+          height: '350px', // Example height, auto will maintain aspect ratio
+          filter: 'brightness(0.6)'
+        }} />
+        <Container style={{backgroundColor:'#b5b5ef', border:'2px solid', marginTop: '30px'}}>
+        <Container style={{ marginTop: '30px', padding:'10px 10px' }}>
+        <h4 style={{marginBottom: '30px', color: '#9500AB' }}><b>Calendar & Time</b></h4>
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
           {/* Calendar component */}
           <div style={{ marginRight: '20px'}}>
-          <Card style={{ width: '350px', backgroundColor:'white', height:'305px', padding:'10px' }}>
+          <Card style={{ width: '350px', backgroundColor:'white', height:'305px', padding:'10px', boxShadow:' rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset' }}>
             <Calendar
               onChange={setSelectedDate} // Set the selected date when user clicks on a date
               value={selectedDate} // Pass the selected date
@@ -204,12 +210,12 @@ const [result, setResult] = useState('');
           </Card>
           </div>
           <div style={{ marginRight: '20px'}}>
-            <Card style={{ width: '260px', backgroundColor:'white', height:'80px', padding:'10px' }}>
+            <Card style={{ width: '260px', backgroundColor:'white', height:'80px', padding:'10px',boxShadow:' rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset' }}>
               {/* Clock component placed inside the Card */}
               <Clock />
               {/* Additional content for the Card can be added here */}
             </Card>
-            <Card style={{ width: '260px', backgroundColor:'white', height:'225px', padding:'10px' , marginTop:'10px'}}>
+            <Card style={{ width: '260px', backgroundColor:'white', height:'225px', padding:'10px' , marginTop:'10px', boxShadow:' rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset' }}>
             <div className="container" style={{ top: '4%', left: '4%',position:'absolute', width:'240px',margin: '0 auto', alignItems: 'center', textAlign: 'center', border: '4px solid grey', backgroundColor: 'rgb(0, 0, 0)', borderRadius: '8px', height:'205px' }}>
               <form >
                 <input type="text" value={result} style={{ height: '40px', width: '210px', backgroundColor: '#e7e7eee6', color: 'black', textAlign: 'right', fontSize: '25px', fontWeight: '500', letterSpacing: '1px', border: '1px solid grey', margin:'2px 0px' }}  />
@@ -237,7 +243,7 @@ const [result, setResult] = useState('');
             </div>
             </Card>
           </div>
-          <Card style={{ width: '900px', backgroundColor:'white', height:'320px' }}>
+          <Card style={{ width: '900px', backgroundColor:'white', height:'320px',boxShadow:' rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset' }}>
             <Card.Body>
               <Card.Title style={{color: '#9500AB'}}><b>Upcoming Features</b></Card.Title>
               <div className="accordion" id="accordionExample">
@@ -271,7 +277,7 @@ const [result, setResult] = useState('');
           </Card>
         </div>
         </Container>
-        <Container style={{marginTop: '30px'}}>
+        <Container style={{marginTop: '30px', padding:'10px 10px'}}>
                 <h4 style={{marginBottom: '30px', color: '#9500AB'}}><b>Urgent Tasks</b></h4>
                 <div className="accordion" id="accordionExample">
                 {items.map((item, idx) => (
@@ -313,10 +319,10 @@ const [result, setResult] = useState('');
                  </div><br></br>
                  <Button variant="outline-primary" onClick={handleAddTask} style={{ marginLeft: '10px', backgroundColor: '#8181e1', color: 'white', border:'none' }}>Add Task</Button> 
         </Container>
-        <Container style={{ marginTop: '30px', display: 'flex', justifyContent: 'space-between' }}>
+        <Container style={{ marginTop: '30px', display: 'flex', justifyContent: 'space-between', padding:'10px 10px' }}>
         <div>
         <h4 style={{marginBottom: '30px', color: '#9500AB'}}><b>Features</b></h4>
-        <Card style={{ width: '140%', backgroundColor:'white', height:'325px',  padding:'10px' }}>
+        <Card style={{ width: '140%', backgroundColor:'white', height:'325px',  padding:'10px',boxShadow: 'rgb(38, 57, 77) 0px 20px 30px -10px' }}>
               <ListGroup style={{ width: '100%', backgroundColor:'white', borderRadius:'20px' }}>
               <ListGroup.Item as={Button} href="/content" style={{paddingBottom: '10px'}}>🏨 Venue Options</ListGroup.Item>
               <ListGroup.Item as={Button} href="/create-event" style={{paddingBottom: '10px'}}>🗓️ Create Event</ListGroup.Item>
@@ -330,7 +336,7 @@ const [result, setResult] = useState('');
         </div>
         <div>
         <h4 style={{marginBottom: '30px', marginLeft:'140px', color: '#9500AB'}}><b>Team</b></h4>
-        <Card className='team' style={{ width: '88%', backgroundColor: 'white',marginLeft:'130px', padding: '5px 10px', height:'325px' }}>
+        <Card className='team' style={{ width: '88%', backgroundColor: 'white',marginLeft:'130px', padding: '5px 10px', height:'325px',boxShadow: 'rgb(38, 57, 77) 0px 20px 30px -10px'  }}>
         <div className="row">
           <div className="column" style={{ float: 'left', width: '25%', padding: '5px 15px' }}>
             <div className="team-card" style={{ boxShadow:' rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset', height:'300px', borderRadius:'15px' }}>
@@ -384,6 +390,7 @@ const [result, setResult] = useState('');
         </Card>
         </div>
         </Container>
+        </Container>
           <Container className="d-flex flex-column align-items-center justify-content-center text-center">
             <div className="text-row" style={{ marginTop: '60px', color: '#9500AB' }}>
               <h3>DASHBOARD</h3>
@@ -399,6 +406,7 @@ const [result, setResult] = useState('');
               <Spinner animation="grow" variant="secondary" />
             </div>
           </Container>
+          
         <ShortFooter />
     </div>
   )
