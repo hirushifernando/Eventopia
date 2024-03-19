@@ -15,6 +15,7 @@ import  QuestionForm  from './pages/QuestionForm';
 import  Content  from './pages/Content';
 
 import EventDetails  from './pages/EventDetails';
+import { Requre } from './pages/Requre';
 
 
 
@@ -40,6 +41,7 @@ function App() {
           </React.Fragment>
         } />
         <Route path="content" element={<Content/>} />
+        <Route path="req" element={<Requre/>} />
         
         </Routes>
       </Router>
