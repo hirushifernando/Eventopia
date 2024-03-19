@@ -3,7 +3,7 @@ import { Spinner, Container } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavComp from '../components/NavComp';
 import backgroundImage from './logo3.png';
-
+import ShortFooter from '../components/ShortFooter';
 import { Button, Card  } from 'react-bootstrap'; // Imported Button from react-bootstrap
 import ListGroup from 'react-bootstrap/ListGroup';
 
@@ -67,14 +67,35 @@ const ContactUs = () => {
               <h6>Choose the best place according to your Requirements</h6>
             </div>
           </Container>
-          <div>
-        <Card >
-             
-        </Card>
-        </div>
+         <div>
+          <div style={{
+            width: '900px', // Adjust width as needed
+            height: '200px', // Adjust height as needed
+            backgroundColor: '#f0f0f0', // Change color as needed
+            position: 'relative', // Adjust position as needed
+            marginLeft: '300px', // Adjust margin as needed
+            margin:'50px',
+            padding: '10px', // Adjust padding as needed
+            border: '2px solid #9500AB', // Add border for visual distinction
+            borderRadius: '15px', // Add border radius for rounded corners
+            boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)', // Add box shadow for depth
+        }}>
+                <p>AI-powered recommendation system for suitable places provides tailored suggestions based
+                     on your input criteria.  Using advanced artificial intelligence algorithms, the system 
+                     analyzes various factors such as location, capacity, amenities and your preferences to 
+                     make personalized recommendations.  You have the flexibility to adjust budget limits, 
+                     allowing you to refine your search based on financial considerations.  Whether planning
+                      a corporate event, wedding or casual gathering, this recommendation system streamlines 
+                      the venue selection process, ensuring you find the perfect venue that meets your specific
+                       needs and budget constraints.  With its intuitive interface and customizable options, 
+                       you can easily explore a wide range of venue options and ultimately enhance your event 
+                       planning experience. <span style={{ color: '#9500AB', fontWeight:'700' }}>Click this chat bot</span></p>
+                       </div>
 
         </div>
+        </div>
       )}
+        <ShortFooter />
     </div>
   );
 };
