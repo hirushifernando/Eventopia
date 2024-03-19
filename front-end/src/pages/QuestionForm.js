@@ -6,8 +6,16 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { Image } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './questionform.css';
-
+import { useStateValue } from './StateProvider';
+import { useNavigate } from 'react-router-dom';
+import { IconButton } from '@material-ui/core';
 function FormHeader() {
+  const navigate = useNavigate();
+  const [{doc_name}, dispatch] = useStateValue();
+
+  function navigates(){
+    navigate("/response")
+  }
   return (
     <>
       <div className="form_header">
@@ -17,13 +25,16 @@ function FormHeader() {
           </Col>
           <Col md={6} xs={12}>
             <InputGroup className="mb-3">
-              <FormControl placeholder="Untitled form" className="form_name" />
+              <FormControl placeholder="Untitled form" className="form_name" value={doc_name}/>
             </InputGroup>
           </Col>
         </Row>
         <div className="form_header_right">
           <ColorLensIcon className="form_header_icon" />
-          <AiOutlineEye className="form_header_icon" />
+          <IconButton onClick={() => navigates()}>
+            <AiOutlineEye className="form_header_icon" />
+          </IconButton>
+
           <Button variant="primary" href="#contained-buttons" style={{backgroundColor: '#d7a3dc', border:'none', color:'black'}}>
             Send
           </Button>
@@ -31,16 +42,7 @@ function FormHeader() {
         </div>
       </div>
       {/* Move the Container outside the form_header div */}
-      <Container  >
-        <Nav className="justify-content-center" variant="tabs" defaultActiveKey="/questions" >
-          <Nav.Item>
-            <Nav.Link eventKey="/questions">Questions</Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link eventKey="/responses">Responses</Nav.Link>
-          </Nav.Item>
-        </Nav>
-      </Container>
+      
     </>
   );
 }

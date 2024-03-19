@@ -5,12 +5,19 @@ const UserModel = require('./models/User');
 const RegistrationModel = require('./models/Registration');
 const TaskModel = require('./models/Task');
 const ContactModel = require('./models/Contact');
-
+const fs = require ("fs");
 const app = express();
+const bodyParser = require('body-parser');
+const path = require('path')
+
 
 app.use(express.json());
 app.use(cors());
-
+app.use(function(req, res, next){
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
 
 mongoose.connect("mongodb+srv://deshan20221509:C5232DFsoKAQeu2X@cluster0.g8hdg9b.mongodb.net/eventplannerdb?retryWrites=true&w=majority", {
   useNewUrlParser: true,
@@ -21,10 +28,73 @@ mongoose.connect("mongodb+srv://deshan20221509:C5232DFsoKAQeu2X@cluster0.g8hdg9b
   console.error("Error connecting to MongoDB Atlas:", err);
 });
 
+const Excel =require('exceljs')
+
 app.post('/setting', (req, res) => {
     RegistrationModel.create(req.body)
     .then(settings => res.json(settings))
     .catch(err =>res.json(err))
+});
+
+app.post('/question_form/:doc_id' ,(req, res) =>{ 
+    var docs_data = req.body;
+    var name = req.params.doc_id
+    console.log(docs_data)
+    let data = JSON.stringify(docs_data);
+    fs.writeFileSync(`files/${name}.json`, data);
+})
+
+app.get("/data/:doc_id",(req,res)=>{
+    var docId=req.params.doc_id;
+    fs.readFile(`files/${docId}.json`, (err, data)=>{
+        if (err) throw err;
+        let ques_data =JSON.parse(data);
+        console.log(req.params.doc_id)
+        res.send(ques_data);
+    });
+})
+
+app.get("/get_all_filenames", (req,res)=>{
+    const directoryPath = path.join(__dirname, '/files');
+
+
+    fs.readdir(directoryPath, function (err, files){
+        if(err){
+            return console.log('Unable to scan directory: ' + err);
+        }
+        res.send(files);
+    });
+});
+
+app.post("/student_response/:doc_id", (req, res) => {
+    var docs_data = req.body;
+    var name = req.params.doc_id;
+    
+    let workbook = new Excel.Workbook();
+    let worksheet = workbook.addWorksheet(`Responses_${name}`);
+    
+    worksheet.columns = [
+        { header: "Time Stamp", key: "datetime", width: 20 },
+        ...docs_data.column // Assuming docs_data.column contains headers for the responses
+    ];
+    worksheet.getRow(1).font = { bold: true };
+    
+    // Assuming req.body.answer_data is an array of response objects
+    req.body.answer_data.forEach(response => {
+        worksheet.addRow({
+            datetime: new Date(), // Assuming you want to timestamp each response
+            ...response
+        });
+    });
+    
+    // Save the workbook
+    workbook.xlsx.writeFile(`responses_${name}.xlsx`)
+        .then(() => {
+            res.json({ message: 'Responses added to Excel sheet successfully' });
+        })
+        .catch(err => {
+            res.status(500).json({ error: err.message });
+        });
 });
 
 

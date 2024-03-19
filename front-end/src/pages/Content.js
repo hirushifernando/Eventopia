@@ -53,6 +53,19 @@ function Directory() {
   return (
     <div>
       <NavComp />
+      <img src='dir5.png' alt="Description of the image" style={{
+          width: '100%', // Example width
+          height: '450px', // Example height, auto will maintain aspect ratio
+          filter: 'brightness(0.8)'
+        }} />
+        <Container className="d-flex flex-column align-items-center justify-content-center text-center">
+          <div className="text-row" style={{ marginTop: '30px', color: '#9500AB' }}>
+            <h3>Sales Directory</h3>
+          </div>
+          <div className="text-row" style={{ color: '#9500AB' }}>
+            <h6>Choose Your Vendor</h6>
+          </div>
+        </Container>
       <Container style={{ marginTop: '30px' }}>
         <Tabs defaultActiveKey="home" id="justify-tab-example" className="mb-3" justify>
           <Tab eventKey="home" title={<span style={{ color: '#a600a6' }}>Venue Coordination</span>}>
@@ -61,7 +74,7 @@ function Directory() {
                 {venues.map((venue, index) => (
                   <Card
                     key={index}
-                    style={{ width: '18rem', backgroundColor: '#ffeeaa', border: '2px solid #a600a6', marginBottom: '20px', borderRadius: '20px' }}
+                    style={{ width: '18rem', backgroundColor: '#e8e8e8', border: '2px solid #a600a6', marginBottom: '20px', borderRadius: '20px' }}
                   >
                     <Card.Img variant="top" src={venue.image} alt="Venue Image" style={{ borderTopLeftRadius: '20px', borderTopRightRadius: '20px'}} />
                     <Card.Body>
@@ -92,7 +105,7 @@ function Directory() {
                 ))}
 
                 {selectedVenue && (
-                  <Card style={{ marginTop: '20px', border: '2px solid #a600a6', width: '100%', backgroundColor: '#ffeeaa' }}>
+                  <Card style={{ marginTop: '20px', border: '2px solid #a600a6', width: '100%', backgroundColor: '#e8e8e8' }}>
                     <Card.Body>
                       <p><b><u>Serenity Springs Lodge</u></b></p>
                       <div>
@@ -140,7 +153,7 @@ function Directory() {
          <Row>
 
         <Col sm={12} md={6} lg={4} style={{ marginBottom: '20px' }}>
-         <Card style={{ width: '100%', backgroundColor: '#ffeeaa', border: '2px solid #a600a6',  borderRadius: '20px' }}>
+         <Card style={{ width: '100%', backgroundColor: '#e8e8e8', border: '2px solid #a600a6',  borderRadius: '20px' }}>
           <Card.Img variant="top" src="/directoryp1.png" alt="Venue Image" style={{ borderTopLeftRadius: '20px', borderTopRightRadius: '20px'}}  />
           <Card.Body>
             <Card.Title>
@@ -160,7 +173,7 @@ function Directory() {
         </Col>
 
         <Col sm={12} md={6} lg={4} style={{ marginBottom: '20px' }}>
-        <Card style={{ width: '100%', backgroundColor: '#ffeeaa', border: '2px solid #a600a6',  borderRadius: '20px' }}>
+        <Card style={{ width: '100%', backgroundColor: '#e8e8e8', border: '2px solid #a600a6',  borderRadius: '20px' }}>
           <Card.Img variant="top" src="/directoryp2.png" alt="Venue Image" style={{ borderTopLeftRadius: '20px', borderTopRightRadius: '20px'}}  />
           <Card.Body>
             <Card.Title>
@@ -180,7 +193,7 @@ function Directory() {
         </Col>
 
         <Col sm={12} md={6} lg={4} style={{ marginBottom: '20px' }}>
-        <Card style={{ width: '100%', backgroundColor: '#ffeeaa', border: '2px solid #a600a6',  borderRadius: '20px' }}>
+        <Card style={{ width: '100%', backgroundColor: '#e8e8e8', border: '2px solid #a600a6',  borderRadius: '20px' }}>
           <Card.Img variant="top" src="/directoryp3.png" alt="Venue Image" style={{ borderTopLeftRadius: '20px', borderTopRightRadius: '20px'}}  />
           <Card.Body>
             <Card.Title>
@@ -208,7 +221,7 @@ function Directory() {
             <Container style={{ marginTop: '30px' }}>
        <Row>
         <Col sm={12} md={6} lg={4} style={{ marginBottom: '20px' }}>
-         <Card style={{ width: '100%', backgroundColor: '#ffeeaa', border: '2px solid #a600a6',  borderRadius: '20px' }}>
+         <Card style={{ width: '100%', backgroundColor: '#e8e8e8', border: '2px solid #a600a6',  borderRadius: '20px' }}>
           <Card.Img variant="top" src="/directorym1.png" alt="Venue Image" style={{ borderTopLeftRadius: '20px', borderTopRightRadius: '20px'}} />
           <Card.Body>
             <Card.Title>
@@ -228,7 +241,7 @@ function Directory() {
         </Col>
 
         <Col sm={12} md={6} lg={4} style={{ marginBottom: '20px' }}>
-        <Card style={{ width: '100%', backgroundColor: '#ffeeaa', border: '2px solid #a600a6' ,  borderRadius: '20px' }}>
+        <Card style={{ width: '100%', backgroundColor: '#e8e8e8', border: '2px solid #a600a6' ,  borderRadius: '20px' }}>
           <Card.Img variant="top" src="/directorym2.png" alt="Venue Image" style={{ borderTopLeftRadius: '20px', borderTopRightRadius: '20px'}} />
           <Card.Body>
             <Card.Title>
@@ -246,25 +259,31 @@ function Directory() {
           </Card.Body>
          </Card>
          </Col>
+
+         <Col sm={12} md={6} lg={4} style={{ marginBottom: '20px' }}>
+         <Card style={{ width: '100%', backgroundColor: '#e8e8e8', border: '2px solid #a600a6',  borderRadius: '20px' }}>
+          <Card.Img variant="top" src="/directory5.jpeg" alt="Venue Image" style={{ borderTopLeftRadius: '20px', borderTopRightRadius: '20px', height:'315px'}} />
+          <Card.Body>
+            <Card.Title>
+              <b>Phoenix Rocks</b>
+            </Card.Title>
+            <p style={{ fontSize: '14px', textAlign: 'justify'  }}>
+            "Phoenix Rocks is a fiery fusion of musical passion that ignites the spirit! With explosive melodies and soul-stirring lyrics, they blaze a trail of sonic rebellion against the mundane, setting hearts ablaze with their electrifying energy."
+            </p>
+            <br />
+            <Card.Text>
+              <FontAwesomeIcon icon={faMailBulk} /> info@PhoenixRocks.com
+              <br />
+              <FontAwesomeIcon icon={faPhone} /> +1 (555) 885-5253
+            </Card.Text>
+          </Card.Body>
+        </Card>
+        </Col>
+
          </Row>
          </Container>
           </Tab>
         </Tabs>
-        <Container className="d-flex flex-column align-items-center justify-content-center text-center">
-          <div className="text-row" style={{ marginTop: '40px', color: '#9500AB' }}>
-            <h6>Sales Directory</h6>
-          </div>
-          <div className="text-row" style={{ color: '#9500AB' }}>
-            <h3>Choose Your Vendor</h3>
-          </div>
-
-          <div className="flower-vines" style={{ paddingBottom: '30px' }}>
-            <Spinner animation="grow" variant="secondary" />
-            <Spinner animation="grow" variant="secondary" />
-            <Spinner animation="grow" variant="secondary" />
-            <Spinner animation="grow" variant="secondary" />
-          </div>
-        </Container>
       </Container>
       <ShortFooter />
     </div>

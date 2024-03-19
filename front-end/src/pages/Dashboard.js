@@ -191,12 +191,26 @@ const [result, setResult] = useState('');
   return (
     <div>
         <NavComp/>
-        <Container style={{ marginTop: '30px' }}>
-        <h4 style={{ marginTop: '30px', marginBottom: '30px' }}><b>Calendar & Time</b></h4>
+        <img src='dash6.jpg' alt="Description of the image" style={{
+          width: '100%', // Example width
+          height: '350px', // Example height, auto will maintain aspect ratio
+          filter: 'brightness(0.8)'
+        }} />
+        <Container className="d-flex flex-column align-items-center justify-content-center text-center">
+            <div className="text-row" style={{ marginTop: '30px', color: '#9500AB' }}>
+              <h3>DASHBOARD</h3>
+            </div>
+            <div className="text-row" style={{ color: '#9500AB' }}>
+              <h6>Your Event Details</h6>
+            </div>
+          </Container>
+        <Container style={{borderRadius: '30px', border:'2px solid', marginTop: '30px'}}>
+        <Container style={{ marginTop: '30px', padding:'10px 10px' }}>
+        <h4 style={{marginBottom: '30px', color: '#9500AB' }}><b>Calendar & Time</b></h4>
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
           {/* Calendar component */}
           <div style={{ marginRight: '20px'}}>
-          <Card style={{ width: '350px', backgroundColor:'white', height:'305px', padding:'10px' }}>
+          <Card style={{ width: '350px', backgroundColor:'white', height:'305px', padding:'10px', boxShadow:' rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset' }}>
             <Calendar
               onChange={setSelectedDate} // Set the selected date when user clicks on a date
               value={selectedDate} // Pass the selected date
@@ -204,12 +218,12 @@ const [result, setResult] = useState('');
           </Card>
           </div>
           <div style={{ marginRight: '20px'}}>
-            <Card style={{ width: '260px', backgroundColor:'white', height:'80px', padding:'10px' }}>
+            <Card style={{ width: '260px', backgroundColor:'white', height:'80px', padding:'10px',boxShadow:' rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset' }}>
               {/* Clock component placed inside the Card */}
               <Clock />
               {/* Additional content for the Card can be added here */}
             </Card>
-            <Card style={{ width: '260px', backgroundColor:'white', height:'225px', padding:'10px' , marginTop:'10px'}}>
+            <Card style={{ width: '260px', backgroundColor:'white', height:'225px', padding:'10px' , marginTop:'10px', boxShadow:' rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset' }}>
             <div className="container" style={{ top: '4%', left: '4%',position:'absolute', width:'240px',margin: '0 auto', alignItems: 'center', textAlign: 'center', border: '4px solid grey', backgroundColor: 'rgb(0, 0, 0)', borderRadius: '8px', height:'205px' }}>
               <form >
                 <input type="text" value={result} style={{ height: '40px', width: '210px', backgroundColor: '#e7e7eee6', color: 'black', textAlign: 'right', fontSize: '25px', fontWeight: '500', letterSpacing: '1px', border: '1px solid grey', margin:'2px 0px' }}  />
@@ -237,9 +251,9 @@ const [result, setResult] = useState('');
             </div>
             </Card>
           </div>
-          <Card style={{ width: '900px', backgroundColor:'white', height:'320px' }}>
+          <Card style={{ width: '900px', backgroundColor:'white', height:'320px',boxShadow:' rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset' }}>
             <Card.Body>
-              <Card.Title><b>Upcoming Features</b></Card.Title>
+              <Card.Title style={{color: '#9500AB'}}><b>Upcoming Features</b></Card.Title>
               <div className="accordion" id="accordionExample">
                 {accordionUpdateItems.map((item, idx) => (
                 <div key={idx} className="accordion-item">
@@ -271,8 +285,8 @@ const [result, setResult] = useState('');
           </Card>
         </div>
         </Container>
-        <Container style={{marginTop: '30px'}}>
-                <h4 style={{marginBottom: '30px'}}><b>Urgent Tasks</b></h4>
+        <Container style={{marginTop: '30px', padding:'10px 10px'}}>
+                <h4 style={{marginBottom: '30px', color: '#9500AB'}}><b>Urgent Tasks</b></h4>
                 <div className="accordion" id="accordionExample">
                 {items.map((item, idx) => (
                 <div key={idx} className="accordion-item">
@@ -313,64 +327,70 @@ const [result, setResult] = useState('');
                  </div><br></br>
                  <Button variant="outline-primary" onClick={handleAddTask} style={{ marginLeft: '10px', backgroundColor: '#8181e1', color: 'white', border:'none' }}>Add Task</Button> 
         </Container>
-        <Container style={{ marginTop: '30px', display: 'flex', justifyContent: 'space-between' }}>
+        <Container style={{ marginTop: '30px', display: 'flex', justifyContent: 'space-between', padding:'10px 10px' }}>
         <div>
-        <h4 style={{marginBottom: '30px'}}><b>Features</b></h4>
-        <Card style={{ width: '200%', backgroundColor:'white', height:'263px',  padding:'10px' }}>
-              <ListGroup style={{ width: '100%', backgroundColor:'white', height:'200px', borderRadius:'20px' }}>
-              <ListGroup.Item as={Button} href="/content" style={{paddingBottom: '15px'}}>🏨 Venue Options</ListGroup.Item>
-              <ListGroup.Item as={Button} href="/create-event" style={{paddingBottom: '15px'}}>🗓️ Create Event</ListGroup.Item>
-              <ListGroup.Item as={Button} href="/eventform" style={{paddingBottom: '15px'}}>📋 Event Checklist</ListGroup.Item>
-              <ListGroup.Item as={Button} href="/venue-suggestions" style={{paddingBottom: '15px'}}>🗺️ Venue Suggestions</ListGroup.Item>
-              <ListGroup.Item as={Button} href="/customize" style={{paddingBottom: '15px'}}>🛠️ Menu & Theme Personalization</ListGroup.Item>
+        <h4 style={{marginBottom: '30px', color: '#9500AB'}}><b>Features</b></h4>
+        <Card style={{ width: '140%', backgroundColor:'white', height:'325px',  padding:'10px',boxShadow: 'rgb(38, 57, 77) 0px 20px 30px -10px' }}>
+              <ListGroup style={{ width: '100%', backgroundColor:'white', borderRadius:'20px' }}>
+              <ListGroup.Item as={Button} href="/content" style={{paddingBottom: '10px'}}>🏨 Venue Options</ListGroup.Item>
+              <ListGroup.Item as={Button} href="/create-event" style={{paddingBottom: '10px'}}>🗓️ Create Event</ListGroup.Item>
+              <ListGroup.Item as={Button} href="/eventform" style={{paddingBottom: '10px'}}>📋 Event Checklist</ListGroup.Item>
+              <ListGroup.Item as={Button} href="/dashboard" style={{paddingBottom: '10px'}}>➕ Add Tasks</ListGroup.Item>
+              <ListGroup.Item as={Button} href="/venue-suggestions" style={{paddingBottom: '10px'}}>🗺️ Venue Suggestions</ListGroup.Item>
+              <ListGroup.Item as={Button} href="/customize" style={{paddingBottom: '10px'}}>🍽️ Menu Personalization</ListGroup.Item>
+              <ListGroup.Item as={Button} href="/customize" style={{paddingBottom: '10px'}}>🎨 Theme Personalization</ListGroup.Item>
               </ListGroup>
         </Card>
         </div>
         <div>
-        <h4 style={{marginBottom: '30px', marginLeft:'205px'}}><b>Team</b></h4>
-        <Card style={{ width: '83%', backgroundColor: 'white', padding: '10px', marginLeft:'200px', height:'260px' }}>
+        <h4 style={{marginBottom: '30px', marginLeft:'140px', color: '#9500AB'}}><b>Team</b></h4>
+        <Card className='team' style={{ width: '88%', backgroundColor: 'white',marginLeft:'130px', padding: '5px 10px', height:'325px',boxShadow: 'rgb(38, 57, 77) 0px 20px 30px -10px'  }}>
         <div className="row">
-          <div className="column" style={{ float: 'left', width: '25%', marginBottom: '16px', padding: '0 8px' }}>
-            <div className="card" style={{ boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2)', height:'240px' }}>
+          <div className="column" style={{ float: 'left', width: '25%', padding: '5px 15px' }}>
+            <div className="team-card" style={{ boxShadow:' rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset', height:'300px', borderRadius:'15px' }}>
               <div className="container" style={{ padding: '0 16px' }}>
                 <h2 style={{ color: 'black' }}>Deshan.P</h2>
                 <p className="title">Technical manager</p>
                 <p style={{textAlign: 'justify', fontSize: '14px'}}>Responsible for delivering user support, maintaining platform functionality, and resolving technical issues as a technical manager.</p>
                 <p>deshan0514@gmail.com</p>
+                <p>075 8823756</p>
               </div>
             </div>
           </div>
 
-          <div className="column" style={{ float: 'left', width: '25%', marginBottom: '16px', padding: '0 8px' }}>
-            <div className="card" style={{ boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2)', height:'240px' }}>
+          <div className="column" style={{ float: 'left', width: '25%', padding: '5px 15px' }}>
+            <div className="team-card" style={{ boxShadow:' rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset', height:'300px', borderRadius:'15px' }}>
               
               <div className="container" style={{ padding: '0 16px' }}>
                 <h2 style={{ color: 'black' }}>Damiru.S</h2>
                 <p className="title">System administrator </p>
                 <p style={{textAlign: 'justify', fontSize: '14px'}}>Overseeing the daily operations of an event planning website to ensure optimal functionality and user experience.</p>
                 <p>damiru0116@gmail.com</p>
+                <p>074 8785726</p>
               </div>
             </div>
           </div>
-          <div className="column" style={{ float: 'left', width: '25%', marginBottom: '16px', padding: '0 8px' }}>
-            <div className="card" style={{ boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2)', height:'240px' }}>
+          <div className="column" style={{ float: 'left',  width: '25%', padding: '5px 15px' }}>
+            <div className="team-card" style={{ boxShadow:' rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset', height:'300px', borderRadius:'15px' }}>
               
               <div className="container" style={{ padding: '0 16px' }}>
                 <h2 style={{ color: 'black' }}>Hirushi.F</h2>
                 <p className="title">System administrator </p>
                 <p style={{textAlign: 'justify', fontSize: '14px'}}>Overseeing the daily operations of an event planning website to ensure optimal functionality and user experience.</p>
                 <p>hirushi1107@gmail.com</p>
+                <p>077 7707891</p>
               </div>
             </div>
           </div>
-          <div className="column" style={{ float: 'left', width: '25%', marginBottom: '16px', padding: '0 8px' }}>
-            <div className="card" style={{ boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2)', height:'240px' }}>
+          <div className="column" style={{ float: 'left', width: '25%', padding: '5px 15px'}}>
+            <div className="team-card" style={{boxShadow:' rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset', height:'300px', borderRadius:'15px' }}>
               
               <div className="container" style={{ padding: '0 16px' }}>
                 <h2 style={{ color: 'black' }}>Nenithi.S</h2>
                 <p className="title">Technical manager</p>
                 <p style={{textAlign: 'justify', fontSize: '14px'}}>Responsible for delivering user support, maintaining platform functionality, and resolving technical issues as a technical manager.</p>
                 <p>nenithi0317@gmail.com</p>
+                <p>072 5689741</p>
               </div>
             </div>
           </div>
@@ -378,21 +398,7 @@ const [result, setResult] = useState('');
         </Card>
         </div>
         </Container>
-          <Container className="d-flex flex-column align-items-center justify-content-center text-center">
-            <div className="text-row" style={{ marginTop: '60px', color: '#9500AB' }}>
-              <h3>DASHBOARD</h3>
-            </div>
-            <div className="text-row" style={{ color: '#9500AB' }}>
-              <h6>Your Event Details</h6>
-            </div>
-
-            <div className="flower-vines" style={{ paddingBottom: '5px' }}>
-              <Spinner animation="grow" variant="secondary" />
-              <Spinner animation="grow" variant="secondary" />
-              <Spinner animation="grow" variant="secondary" />
-              <Spinner animation="grow" variant="secondary" />
-            </div>
-          </Container>
+        </Container>
         <ShortFooter />
     </div>
   )

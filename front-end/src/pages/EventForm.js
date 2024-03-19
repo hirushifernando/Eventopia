@@ -28,22 +28,20 @@ export const EventForm = () => {
   return (
     <div>
         <NavComp />
+        <img src='check1.jpg' alt="Description of the image" style={{
+          width: '100%', // Example width
+          height: '400px', // Example height, auto will maintain aspect ratio
+          filter: 'brightness(0.6)'
+        }} />
         <Container className="d-flex flex-column align-items-center justify-content-center text-center">
-            <div className="text-row" style={{ marginTop: '60px', color: '#9500AB' }}>
+            <div className="text-row" style={{ marginTop: '30px', color: '#9500AB' }}>
               <h3>PREMADE FORM</h3>
             </div>
             <div className="text-row" style={{ color: '#9500AB' }}>
               <h6>Previous Event Details</h6>
             </div>
-
-            <div className="flower-vines" style={{ paddingBottom: '30px' }}>
-              <Spinner animation="grow" variant="secondary" />
-              <Spinner animation="grow" variant="secondary" />
-              <Spinner animation="grow" variant="secondary" />
-              <Spinner animation="grow" variant="secondary" />
-            </div>
           </Container>
-          <Container style={{ border: '2px solid #9500AB', borderRadius: '20px' }}>
+          <Container style={{ border: '3px solid #9500AB', borderRadius: '30px'}}>
           <Form.Group as={Col} controlId="formGridState" style={{ marginTop: '30px', paddingLeft: '10px', paddingRight: '10px' }}>
           <Form.Label>Event Type:</Form.Label>
           <Form.Select defaultValue="Choose...">
@@ -57,7 +55,7 @@ export const EventForm = () => {
         </Form.Group>
         <Form.Group as={Col} controlId="formGridCalendar" style={{ marginTop: '30px', paddingLeft: '10px', paddingRight: '10px' }}>
           <Form.Label>Event Date:</Form.Label>
-          <Form.Control type="date" placeholder="Select date" />
+          <Form.Control type="date" placeholder="Select date"  />
         </Form.Group>
         <Form.Group as={Col} controlId="formGridLocation" style={{ marginTop: '30px', paddingLeft: '10px', paddingRight: '10px' }}>
           <Form.Label>Event Location:</Form.Label>
@@ -125,7 +123,7 @@ export const EventForm = () => {
           <Form.Range min={0} max={100} />
         </Form.Group>
         <div className="save-changes-button-container" style={{ marginTop: '40px', textAlign: 'center', marginBottom: '40px' }}>
-                <button type="submit" className="save-button" style={{ backgroundColor: '#c6c6f5', border: '2px solid #a600a6', borderRadius: '10px', padding: '10px 100px' }}>
+                <button type="submit" className="save-button" style={{ backgroundColor: '#a600a6', border: '2px solid #a600a6', borderRadius: '10px', padding: '10px 100px' }}>
                   SUBMIT NOW
                 </button>
               </div>

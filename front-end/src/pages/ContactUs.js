@@ -49,17 +49,10 @@ const ContactUs = () => {
           <NavComp />
           <Container className="d-flex flex-column align-items-center justify-content-center text-center">
             <div className="text-row" style={{ marginTop: '40px', color: '#9500AB' }}>
-              <h6>CONTACT US</h6>
+              <h3>CONTACT US</h3>
             </div>
             <div className="text-row" style={{ color: '#9500AB' }}>
-              <h3>The Eventopia</h3>
-            </div>
-
-            <div className="flower-vines" style={{ paddingBottom: '30px' }}>
-              <Spinner animation="grow" variant="secondary" />
-              <Spinner animation="grow" variant="secondary" />
-              <Spinner animation="grow" variant="secondary" />
-              <Spinner animation="grow" variant="secondary" />
+              <h6>The Eventopia</h6>
             </div>
           </Container>
           <Container className="d-flex flex-column align-items-center justify-content-center text-center">
@@ -87,13 +80,6 @@ const ContactUs = () => {
             </div>
             <div className="text-row" style={{ color: '#9500AB' }}>
               <h3>Give Your Feedback</h3>
-            </div>
-
-            <div className="flower-vines" style={{ paddingBottom: '30px' }}>
-              <Spinner animation="grow" variant="secondary" />
-              <Spinner animation="grow" variant="secondary" />
-              <Spinner animation="grow" variant="secondary" />
-              <Spinner animation="grow" variant="secondary" />
             </div>
           </Container>
           <div
@@ -129,7 +115,7 @@ const ContactUs = () => {
                 <Form.Control as="textarea" rows={3} />
               </Form.Group>
               <div className="save-changes-button-container" style={{ marginTop: '40px', textAlign: 'center', marginBottom: '40px' }}>
-                <button type="submit" className="save-button" style={{ backgroundColor: '#c6c6f5', border: '2px solid #a600a6', borderRadius: '10px', padding: '10px 100px' }}>
+                <button type="submit" className="save-button" style={{ backgroundColor: '#a600a6', border: '2px solid #a600a6', borderRadius: '10px', padding: '10px 100px' }}>
                   SUBMIT NOW
                 </button>
               </div>
@@ -157,13 +143,6 @@ const ContactUs = () => {
             <div className="text-row" style={{ color: '#9500AB' }}>
               <h3>Social Media</h3>
             </div>
-
-            <div className="flower-vines" style={{ paddingBottom: '30px' }}>
-              <Spinner animation="grow" variant="secondary" />
-              <Spinner animation="grow" variant="secondary" />
-              <Spinner animation="grow" variant="secondary" />
-              <Spinner animation="grow" variant="secondary" />
-            </div>
           </Container>
           <Container className="d-flex flex-column align-items-center justify-content-center text-center">
             <div className="d-flex flex-wrap justify-content-center">
@@ -173,10 +152,14 @@ const ContactUs = () => {
                 </a>
               </div>
               <div className="mb-3">
+              <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
                 <IconTextBox icon={faInstagram} title="Instagram" text="" />
+              </a>
               </div>
               <div className="mb-3">
+              <a href="https://twitter.com/?lang=en" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
                 <IconTextBox icon={faTwitter} title="Twitter" text="" />
+              </a>
               </div>
             </div>
           </Container>

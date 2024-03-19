@@ -4,6 +4,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import NavComp from '../components/NavComp';
 import backgroundImage from './logo3.png';
 
+import { Button, Card  } from 'react-bootstrap'; // Imported Button from react-bootstrap
+import ListGroup from 'react-bootstrap/ListGroup';
+
 
 
 const ContactUs = () => {
@@ -50,6 +53,26 @@ const ContactUs = () => {
           <NavComp />
           <div style={{ width: '0', height: '0' }} id="VG_OVERLAY_CONTAINER">
           </div>
+
+          <img src='re3.jpg' alt="Description of the image" style={{
+          width: '100%', // Example width
+          height: '350px', // Example height, auto will maintain aspect ratio
+          filter: 'brightness(0.8)'
+        }} />
+        <Container className="d-flex flex-column align-items-center justify-content-center text-center">
+            <div className="text-row" style={{ marginTop: '30px', color: '#9500AB' }}>
+              <h3>Requirements</h3>
+            </div>
+            <div className="text-row" style={{ color: '#9500AB' }}>
+              <h6>Choose the best place according to your Requirements</h6>
+            </div>
+          </Container>
+          <div>
+        <Card >
+             
+        </Card>
+        </div>
+
         </div>
       )}
     </div>
@@ -57,3 +80,6 @@ const ContactUs = () => {
 };
 
 export default ContactUs;
+
+
+

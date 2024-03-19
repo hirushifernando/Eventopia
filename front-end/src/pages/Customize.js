@@ -33,10 +33,23 @@ function Template() {
   return (
     <div style={{ backgroundColor: '#c6c6f5' }}>
       <NavComp />
+      <img src='image5.jpg' alt="Description of the image" style={{
+          width: '100%', // Example width
+          height: '400px', // Example height, auto will maintain aspect ratio
+          filter: 'brightness(0.6)'
+        }} />
+        <Container className="d-flex flex-column align-items-center justify-content-center text-center">
+            <div className="text-row" style={{ marginTop: '30px', color: '#9500AB' }}>
+              <h3>CUSTOMIZE</h3>
+            </div>
+            <div className="text-row" style={{ color: '#9500AB' }}>
+              <h6>Customize to your liking</h6>
+            </div>
+          </Container>
       <Container fluid className="template_section">
         {topic.map((topic, index) => (
-          <Container key={index} style={{ marginTop: '30px' }}>
-            <h4 style={{ marginBottom: '30px' }}><b>{topic.name}</b></h4>
+          <Container key={index} style={{ marginTop: '10px' }}>
+            <h4 style={{ marginBottom: '30px', color: '#9500AB' }}><b>{topic.name}</b></h4>
             <Card style={{ width: '100%', backgroundColor: 'white', padding: '10px' }}>
               <Row>
                 <Col xs={12} md={4}>
@@ -49,7 +62,7 @@ function Template() {
                 </Col>
                 <div style={{ textAlign: 'center', marginTop: '10px' }}>
                 <a href="/event" target="_blank" style={{ textDecoration: 'none' }}>
-                  <button style={{ backgroundColor: '#2e2e6b',  color: 'white', border: 'none', padding: '5px 10px', borderRadius: '10px' }}>
+                  <button  className='formbt' style={{color: 'black', border: 'none', padding: '5px 10px', borderRadius: '10px' }}>
                     Customize Form
                   </button>
                 </a>
@@ -58,21 +71,6 @@ function Template() {
             </Card>
           </Container>
         ))}
-        <Container className="d-flex flex-column align-items-center justify-content-center text-center">
-            <div className="text-row" style={{ marginTop: '60px', color: '#9500AB' }}>
-              <h3>CUSTOMIZE</h3>
-            </div>
-            <div className="text-row" style={{ color: '#9500AB' }}>
-              <h6>Customize to your liking</h6>
-            </div>
-
-            <div className="flower-vines" style={{ paddingBottom: '5px' }}>
-              <Spinner animation="grow" variant="secondary" />
-              <Spinner animation="grow" variant="secondary" />
-              <Spinner animation="grow" variant="secondary" />
-              <Spinner animation="grow" variant="secondary" />
-            </div>
-          </Container>
       </Container>
       <ShortFooter />
     </div>
