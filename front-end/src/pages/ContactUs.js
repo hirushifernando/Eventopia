@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import NavComp from '../components/NavComp';
 import ShortFooter from '../components/ShortFooter';
-import backgroundImage from './logo10.jpeg';
+import backgroundImage from './logo10.png';
 
 const IconTextBox = ({ icon, title, text }) => (
   <div className="text-center icon-text-box" style={{ paddingTop: '25px', marginTop: '10px', width: '250px', height: '100px', marginLeft: '10px' }}>
