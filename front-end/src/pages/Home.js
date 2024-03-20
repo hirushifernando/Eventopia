@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGem, faAreaChart, faChartLine, faCheckCircle, faEnvelope, faRoad} from '@fortawesome/free-solid-svg-icons';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import backgroundImage from './logo3.png';
+import backgroundImage from './logo10.jpeg';
 import NavComp from '../components/NavComp';
 import './home.css';
 import Footer from '../components/Footer';
