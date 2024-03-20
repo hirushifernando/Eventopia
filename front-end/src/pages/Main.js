@@ -83,7 +83,7 @@ export const Main = () => {
         {/* First Photo Background */}
         {photoIndex === 0 && !showVideo && (
           <div style={{
-            background: `url("./main5.jpg")`,
+            background: `url("./main16.jpg")`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             width: '100%',
