@@ -204,7 +204,7 @@ const [result, setResult] = useState('');
               <h6>Your Event Details</h6>
             </div>
           </Container>
-        <Container style={{borderRadius: '30px', border:'2px solid', marginTop: '30px'}}>
+        
         <Container style={{ marginTop: '30px', padding:'10px 10px' }}>
         <h4 style={{marginBottom: '30px', color: '#9500AB' }}><b>Calendar & Time</b></h4>
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
@@ -398,7 +398,7 @@ const [result, setResult] = useState('');
         </Card>
         </div>
         </Container>
-        </Container>
+        
         <ShortFooter />
     </div>
   )

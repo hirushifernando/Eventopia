@@ -101,7 +101,7 @@ export const Main = () => {
       </Container>
       <Container>
       <div style={{ position: 'absolute', bottom: '20px', right: '20px' }}>
-            <button onClick={handlePlayVideo} className="btn btn-primary" style={{ border: 'transparent', backgroundColor: 'transparent', marginTop: '20px' }}>🎥 Play Video</button>
+            <button onClick={handlePlayVideo} className="btn btn-primary" style={{ border: 'transparent', backgroundColor: 'white', marginTop: '20px', color:'black'  }}>🎥 Play Video</button>
           </div>
       </Container>
     </div>
