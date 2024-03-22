@@ -36,7 +36,7 @@ function Template() {
       <img src='image5.jpg' alt="Description of the image" style={{
           width: '100%', // Example width
           height: '400px', // Example height, auto will maintain aspect ratio
-          filter: 'brightness(0.6)'
+          filter: 'brightness(0.8)'
         }} />
         <Container className="d-flex flex-column align-items-center justify-content-center text-center">
             <div className="text-row" style={{ marginTop: '30px', color: '#9500AB' }}>

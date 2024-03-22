@@ -43,7 +43,7 @@ const ContactUs = () => {
   }, []);
 
   return (
-    <div>
+     <div style={{ backgroundColor: '#f4dede' }}>
       {loading ? (
         <div className="d-flex align-items-center justify-content-center vh-100">
           <Spinner animation="border" variant="secondary" />
