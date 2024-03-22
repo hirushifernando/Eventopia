@@ -33,7 +33,7 @@ function Template() {
   return (
     <div style={{ backgroundColor: '#c6c6f5' }}>
       <NavComp />
-      <img src='image5.jpg' alt="Description of the image" style={{
+      <img src='image19.jpg' alt="Description of the image" style={{
           width: '100%', // Example width
           height: '400px', // Example height, auto will maintain aspect ratio
           filter: 'brightness(0.8)'
