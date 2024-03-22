@@ -51,7 +51,7 @@ function Directory() {
   ];
 
   return (
-    <div>
+    <div style={{ backgroundColor: '#dad2d2' }}>
       <NavComp />
       <img src='dir5.png' alt="Description of the image" style={{
           width: '100%', // Example width
