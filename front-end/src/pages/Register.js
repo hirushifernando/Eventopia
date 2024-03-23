@@ -14,7 +14,7 @@ const RegisterForm = () => {
 
   const handleSubmit =(e) =>{
     e.preventDefault()
-    axios.post('https://eventopia-api.vercel.app/register',{name, email, password})
+    axios.post('http://eventopia-api.vercel.app/register',{name, email, password})
     .then(result => {
       console.log(result);
       localStorage.setItem('registrationData', JSON.stringify(result.data)); // Save registration data in local storage
