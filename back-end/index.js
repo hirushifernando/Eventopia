@@ -29,6 +29,9 @@ mongoose.connect("mongodb+srv://deshan20221509:C5232DFsoKAQeu2X@cluster0.g8hdg9b
 });
 
 const Excel =require('exceljs')
+app.get('/',(req, res) =>{
+    res.json("helo");
+});
 
 app.post('/setting', (req, res) => {
     RegistrationModel.create(req.body)
