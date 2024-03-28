@@ -35,7 +35,7 @@ export const EventForm = () => {
         }} />
         <Container className="d-flex flex-column align-items-center justify-content-center text-center">
             <div className="text-row" style={{ marginTop: '30px', color: '#9500AB' }}>
-              <h3>PREMADE FORM</h3>
+              <h3>PRE-EVENT FORM</h3>
             </div>
             <div className="text-row" style={{ color: '#9500AB' }}>
               <h6>Previous Event Details</h6>
