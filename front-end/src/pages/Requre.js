@@ -61,7 +61,7 @@ const ContactUs = () => {
         }} />
         <Container className="d-flex flex-column align-items-center justify-content-center text-center">
             <div className="text-row" style={{ marginTop: '30px', color: '#9500AB' }}>
-              <h3>Requirements</h3>
+              <h3>Recommendation</h3>
             </div>
             <div className="text-row" style={{ color: '#9500AB' }}>
               <h6>Choose the best place according to your Requirements</h6>
