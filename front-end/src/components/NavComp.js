@@ -24,7 +24,7 @@ function CollapsibleExample() {
         <Navbar.Collapse id="responsive-navbar-nav" style={{ marginLeft: '20px' }}>
           <Nav className="me-auto">
             <Nav.Link href="dashboard" className="text-light">Dashboard</Nav.Link>
-            <Nav.Link href="req" className="text-light">Requirements</Nav.Link>
+            <Nav.Link href="req" className="text-light">Recommendation</Nav.Link>
             <Nav.Link href="eventform" className="text-light">Pre-made</Nav.Link>
             <Nav.Link href="content" className="text-light">Directory</Nav.Link>
             <Nav.Link href="customize" className="text-light">Customize</Nav.Link>
