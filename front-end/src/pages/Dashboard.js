@@ -333,10 +333,10 @@ const [result, setResult] = useState('');
         <Card style={{ width: '140%', backgroundColor:'white', height:'325px',  padding:'10px',boxShadow: 'rgb(38, 57, 77) 0px 20px 30px -10px' }}>
               <ListGroup style={{ width: '100%', backgroundColor:'white', borderRadius:'20px' }}>
               <ListGroup.Item as={Button} href="/content" style={{paddingBottom: '10px'}}>🏨 Venue Options</ListGroup.Item>
-              <ListGroup.Item as={Button} href="/create-event" style={{paddingBottom: '10px'}}>🗓️ Create Event</ListGroup.Item>
-              <ListGroup.Item as={Button} href="/eventform" style={{paddingBottom: '10px'}}>📋 Event Checklist</ListGroup.Item>
+              <ListGroup.Item as={Button} href="/req" style={{paddingBottom: '10px'}}>🗓️ Create Event</ListGroup.Item>
+                <ListGroup.Item as={Button} href="/eventform" style={{paddingBottom: '10px'}}>📋 Pre-event</ListGroup.Item>
               <ListGroup.Item as={Button} href="/dashboard" style={{paddingBottom: '10px'}}>➕ Add Tasks</ListGroup.Item>
-              <ListGroup.Item as={Button} href="/venue-suggestions" style={{paddingBottom: '10px'}}>🗺️ Venue Suggestions</ListGroup.Item>
+              <ListGroup.Item as={Button} href="/req" style={{paddingBottom: '10px'}}>🗺️ Venue Suggestions</ListGroup.Item>
               <ListGroup.Item as={Button} href="/customize" style={{paddingBottom: '10px'}}>🍽️ Menu Personalization</ListGroup.Item>
               <ListGroup.Item as={Button} href="/customize" style={{paddingBottom: '10px'}}>🎨 Theme Personalization</ListGroup.Item>
               </ListGroup>
