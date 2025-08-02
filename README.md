@@ -1,0 +1,3 @@
+# Event Planning Website 
+
+This website is an event planning web site. This tool acts as a one stop solution for event planning, we create vendor directory, customization menu and theme form and recommendation system. User can add their event task on to the dashboard. When the user enters the location where the event is to be held, we provide location suggestions. This is a pre-event form. We create this for our purpose of getting user pre-event details. This is a sales directory that provides details of locations and sellers. This is the customization form. The user can create a menu and theme form according to their choice and take an idea of  the food and theme they like from the guests attending the event.
