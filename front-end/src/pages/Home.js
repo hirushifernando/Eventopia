@@ -183,7 +183,7 @@ const Loading = () => {
           <Container style={{ position: 'relative', marginTop: '30px' }}>
                <img src="./image2.jpg" className="img-fluid" alt="Client" />
                <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', textAlign: 'center', color: '#fff' }}>
-               <h4><b>WE MAKE IT HAPPEN</b></h4>
+               <h4><b>We Make It Happen</b></h4>
                <Link to='/contact' className="btn btn-primary" style={{ backgroundColor: 'black' }}>Here we are</Link>
                </div>
           </Container>
