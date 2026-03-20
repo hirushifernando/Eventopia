@@ -168,7 +168,7 @@ const ContactUs = () => {
           <Container className="d-flex flex-column align-items-center justify-content-center text-center">
             <div className="d-flex flex-wrap justify-content-center">
               <div className="mb-3">
-                <a href="https://www.facebook.com/profile.php?id=61556548766435&mibextid=2JQ9oc" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
+                <a href="https://web.facebook.com/profile.php?id=61579438148280&sk=about" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
                   <IconTextBox icon={faFacebook} title="Facebook" text="" />
                 </a>
               </div>
