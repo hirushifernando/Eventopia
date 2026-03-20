@@ -173,7 +173,9 @@ const ContactUs = () => {
                 </a>
               </div>
               <div className="mb-3">
-                <IconTextBox icon={faInstagram} title="Instagram" text="" />
+                <a href="https://www.instagram.com/eventopia.lk/" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
+                  <IconTextBox icon={faInstagram} title="Instagram" text="" />
+                </a>
               </div>
               <div className="mb-3">
                 <IconTextBox icon={faTwitter} title="Twitter" text="" />
