@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGem, faAreaChart, faChartLine, faCheckCircle, faEnvelope, faRoad} from '@fortawesome/free-solid-svg-icons';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import backgroundImage from './logo3.png';
+import backgroundImage from './logo10.png';
 import NavComp from '../components/NavComp';
 import './home.css';
 import Footer from '../components/Footer';
@@ -143,7 +143,7 @@ const Loading = () => {
                 <IconTextBox icon={faGem} title="Create Event" text="Make your event the most successful it can be with our assistance." />
               </div>
               <div className="mb-3">
-                <IconTextBox icon={faEnvelope} title="Pre-Made Solutions" text="There are several pre-made event planning options available for you to select from based on your needs." />
+                <IconTextBox icon={faEnvelope} title="Pre-Event" text="There are several pre-made event planning options available for you to select from based on your needs." />
               </div>
 
               <div className="mb-3">
@@ -209,7 +209,7 @@ const Loading = () => {
           {scrolled && (
             <Button
               className="scroll-to-top-button"
-              variant="primary"
+              variant="info"
               onClick={scrollToTop}
             >
             ▲
