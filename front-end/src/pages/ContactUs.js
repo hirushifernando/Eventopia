@@ -178,7 +178,9 @@ const ContactUs = () => {
                 </a>
               </div>
               <div className="mb-3">
-                <IconTextBox icon={faTwitter} title="Twitter" text="" />
+                <a href="https://x.com/EventopiaLK" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
+                  <IconTextBox icon={faTwitter} title="Twitter" text="" />
+                </a>
               </div>
             </div>
           </Container>
