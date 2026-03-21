@@ -3,7 +3,6 @@ import { Spinner, Container, Form, Col, Table } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ShortFooter from '../components/ShortFooter';
 import NavComp from '../components/NavComp';
-import './EventForm.css';
 
 export const EventForm = () => {
   const [tasks, setTasks] = useState([
@@ -25,26 +24,27 @@ export const EventForm = () => {
     setTasks(updatedTasks);
   };
 
-  return (
-    <div className="event-form-container">
-      <NavComp />
-      <Container className="d-flex flex-column align-items-center justify-content-center text-center">
-        <div className="event-form-header">
-          <h1 className="event-form-title">PREMADE FORM</h1>
-          <p className="event-form-subtitle">Previous Event Details</p>
-          <div className="spinner-decoration">
-            <Spinner animation="grow" />
-            <Spinner animation="grow" />
-            <Spinner animation="grow" />
-            <Spinner animation="grow" />
-          </div>
-        </div>
-      </Container>
 
-      <Container className="event-form-card">
-        <Form.Group as={Col} controlId="formGridState" className="form-group-modern">
-          <Form.Label className="form-label-modern">Event Type:</Form.Label>
-          <Form.Select className="form-select-modern" defaultValue="Choose...">
+  return (
+    <div>
+        <NavComp />
+        <img src='check1.jpg' alt="Description of the image" style={{
+          width: '100%', // Example width
+          height: '400px', // Example height, auto will maintain aspect ratio
+          filter: 'brightness(0.6)'
+        }} />
+        <Container className="d-flex flex-column align-items-center justify-content-center text-center">
+            <div className="text-row" style={{ marginTop: '30px', color: '#9500AB' }}>
+              <h3>PRE-EVENT FORM</h3>
+            </div>
+            <div className="text-row" style={{ color: '#9500AB' }}>
+              <h6>Previous Event Details</h6>
+            </div>
+          </Container>
+          <Container style={{ border: '3px solid #9500AB', borderRadius: '30px'}}>
+          <Form.Group as={Col} controlId="formGridState" style={{ marginTop: '30px', paddingLeft: '10px', paddingRight: '10px' }}>
+          <Form.Label>Event Type:</Form.Label>
+          <Form.Select defaultValue="Choose...">
             <option>Choose...</option>
             <option>Weddings</option>
             <option>Party</option>
@@ -53,96 +53,83 @@ export const EventForm = () => {
             <option>Other</option>
           </Form.Select>
         </Form.Group>
-
-        <Form.Group as={Col} controlId="formGridCalendar" className="form-group-modern">
-          <Form.Label className="form-label-modern">Event Date:</Form.Label>
-          <Form.Control className="form-control-modern" type="date" placeholder="Select date" />
+        <Form.Group as={Col} controlId="formGridCalendar" style={{ marginTop: '30px', paddingLeft: '10px', paddingRight: '10px' }}>
+          <Form.Label>Event Date:</Form.Label>
+          <Form.Control type="date" placeholder="Select date"  />
         </Form.Group>
-
-        <Form.Group as={Col} controlId="formGridLocation" className="form-group-modern">
-          <Form.Label className="form-label-modern">Event Location:</Form.Label>
-          <Form.Control className="form-control-modern" type="text" placeholder="Enter location" />
+        <Form.Group as={Col} controlId="formGridLocation" style={{ marginTop: '30px', paddingLeft: '10px', paddingRight: '10px' }}>
+          <Form.Label>Event Location:</Form.Label>
+          <Form.Control type="text" placeholder="Enter location" />
         </Form.Group>
-
-        <Form.Group as={Col} controlId="formGridState" className="form-group-modern">
-          <Form.Label className="form-label-modern">Event Theme:</Form.Label>
-          <Form.Control className="form-control-modern" type="text" placeholder="Enter event theme" />
+        <Form.Group as={Col} controlId="formGridState" style={{ marginTop: '30px', paddingLeft: '10px', paddingRight: '10px' }}>
+          <Form.Label>Event Theme:</Form.Label>
+          <Form.Control type="text" placeholder="Enter event theme" />
         </Form.Group>
-
-        <Form.Group as={Col} controlId="formGridState" className="form-group-modern">
-          <Form.Label className="form-label-modern">Event Budget:</Form.Label>
-          <Form.Control className="form-control-modern" type="text" placeholder="Enter event budget" />
+        <Form.Group as={Col} controlId="formGridState" style={{ marginTop: '30px', paddingLeft: '10px', paddingRight: '10px' }}>
+          <Form.Label>Event Budget:</Form.Label>
+          <Form.Control type="text" placeholder="Enter event budget" />
         </Form.Group>
-
-        <Form.Group as={Col} controlId="formGridState" className="form-group-modern">
-          <Form.Label className="form-label-modern">Event Vendors:</Form.Label>
-          <Form.Control className="form-control-textarea" as="textarea" rows={5} placeholder="Enter vendor details..." />
+        <Form.Group as={Col} controlId="formGridState" style={{ marginTop: '30px', paddingLeft: '10px', paddingRight: '10px' }}>
+          <Form.Label>Event Vendors:</Form.Label>
+          <Form.Control as="textarea" rows={5} />
         </Form.Group>
-
-        <Form.Group className="form-group-modern" controlId="exampleForm.ControlTextarea1">
-          <Form.Label className="form-label-modern">About Event:</Form.Label>
-          <Form.Control className="form-control-textarea" as="textarea" rows={3} placeholder="Describe your event..." />
-        </Form.Group>
-
-        <div className="tasks-section">
-          <Form.Label className="form-label-modern">Event Tasks:</Form.Label>
-          <div className="tasks-table-container">
-            <Table className="tasks-table">
-              <thead>
-                <tr>
-                  <th>No</th>
-                  <th>Task</th>
-                  <th>How to did it</th>
-                  <th>Description</th>
+        <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1" style={{ marginTop: '30px', paddingLeft: '10px', paddingRight: '10px' }}>
+                <Form.Label>About Event:</Form.Label>
+                <Form.Control as="textarea" rows={3} />
+            </Form.Group>
+            <Form.Group as={Col} controlId="formGridState" style={{ marginTop: '30px', paddingLeft: '10px', paddingRight: '10px' }}>
+            <Form.Label>Event Tasks:</Form.Label>
+            <Table bordered>
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Task</th>
+                <th>How to did it</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              {tasks.map(task => (
+                <tr key={task.id}>
+                  <td>{task.id}</td>
+                  <td>
+                    <Form.Control
+                      type="text"
+                      value={task.task}
+                      onChange={e => handleTaskChange(task.id, 'task', e.target.value)}
+                    />
+                  </td>
+                  <td>
+                    <Form.Control
+                      type="text"
+                      value={task.howToDidIt}
+                      onChange={e => handleTaskChange(task.id, 'howToDidIt', e.target.value)}
+                    />
+                  </td>
+                  <td>
+                    <Form.Control
+                      type="text"
+                      value={task.description}
+                      onChange={e => handleTaskChange(task.id, 'description', e.target.value)}
+                    />
+                  </td>
                 </tr>
-              </thead>
-              <tbody>
-                {tasks.map(task => (
-                  <tr key={task.id}>
-                    <td className="task-number-cell">{task.id}</td>
-                    <td className="task-input-cell">
-                      <Form.Control
-                        className="form-control-modern"
-                        type="text"
-                        value={task.task}
-                        onChange={e => handleTaskChange(task.id, 'task', e.target.value)}
-                      />
-                    </td>
-                    <td className="task-input-cell">
-                      <Form.Control
-                        className="form-control-modern"
-                        type="text"
-                        value={task.howToDidIt}
-                        onChange={e => handleTaskChange(task.id, 'howToDidIt', e.target.value)}
-                      />
-                    </td>
-                    <td className="task-input-cell">
-                      <Form.Control
-                        className="form-control-modern"
-                        type="text"
-                        value={task.description}
-                        onChange={e => handleTaskChange(task.id, 'description', e.target.value)}
-                      />
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </Table>
-          </div>
-        </div>
-
-        <Form.Group as={Col} controlId="formGridFeedbackRating" className="form-group-modern">
-          <Form.Label className="form-label-modern">Event Guest Ratings:</Form.Label>
-          <Form.Range className="form-range-modern" min={0} max={100} />
+              ))}
+            </tbody>
+          </Table>
+          </Form.Group>
+          <Form.Group as={Col} controlId="formGridFeedbackRating" style={{ marginTop: '30px', paddingLeft: '10px', paddingRight: '10px' }}>
+          <Form.Label>Event guest Ratings:</Form.Label>
+          <Form.Range min={0} max={100} />
         </Form.Group>
-
-        <div className="submit-section">
-          <button type="submit" className="submit-button">
-            SUBMIT NOW
-          </button>
-        </div>
-      </Container>
-      <ShortFooter />
+        <div className="save-changes-button-container" style={{ marginTop: '40px', textAlign: 'center', marginBottom: '40px' }}>
+                <button type="submit" className="save-button" style={{ backgroundColor: '#a600a6', border: '2px solid #a600a6', borderRadius: '10px', padding: '10px 100px' }}>
+                  SUBMIT NOW
+                </button>
+              </div>
+          </Container>
+          <ShortFooter />
     </div>
-  );
-};
+    
+  )
+}
