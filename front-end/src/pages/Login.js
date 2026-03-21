@@ -4,6 +4,7 @@ import NavComp from '../components/NavComp';
 import backgroundImage from './logo3.png';
 import {useNavigate} from "react-router-dom";
 import axios from 'axios';
+import GoogleLogin from "react-google-login";
 
 const LoginForm = () => {
   const [email,setEmail] = useState()
@@ -12,6 +13,15 @@ const LoginForm = () => {
   const [message, setMessage] = useState();
   const [loading, setLoading] = useState(true);
   
+  const onSuccess = (response) => {
+    console.log('Login Success:', response);
+    // You can handle the successful login here, for example, by sending the token to your backend for authentication.
+ };
+ 
+ const onFailure = (error) => {
+    console.error('Login Failed:', error);
+    // You can handle the failed login here, for example, by displaying an error message to the user.
+ };
 
   const handleSubmit =(e) =>{
     e.preventDefault()
@@ -97,6 +107,18 @@ const LoginForm = () => {
                     </label>
                   </div>
                   {message && <div className="error-message">{message}</div>} {/* Display error message */}<br></br>
+                  <div className="alt-login">
+                      <div className="facebook"></div>
+                      <div className="google">
+                          <GoogleLogin className="google-log"
+                              clientId="YOUR_CLIENT_ID_HERE"
+                              buttonText="Login with Google"
+                              onSuccess={onSuccess}
+                              onFailure={onFailure}
+                              cookiePolicy={'single_host_origin'}
+                          />
+                      </div>
+                  </div><br></br>
                   <div className="login-button-container">
                     <button type="submit" className="login-button">
                       Login
