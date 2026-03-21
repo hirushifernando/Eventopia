@@ -13,12 +13,8 @@ import  Customize  from './pages/Customize';
 import NewQuestionForm from './pages/NewQuestinForm'; // Correcting the import
 import  QuestionForm  from './pages/QuestionForm';
 import  Content  from './pages/Content';
-import Userform from './pages/Userform';
+
 import EventDetails  from './pages/EventDetails';
-
-import Centeredtabs from './pages/Tabs'; 
-import  Requre  from './pages/Requre';
-
 
 
 
@@ -36,20 +32,14 @@ function App() {
           <Route path="dashboard" element={<Dashboard/>} />
           <Route path="eventform" element={<EventForm/>} />
           <Route path="customize" element={<Customize/>} />
-          <Route path="event" element={<EventDetails/>} />
           <Route path="/form/:id" element={
           <React.Fragment>
             <QuestionForm />
-            <Centeredtabs />
-             {/* Corrected component name */}
+            <NewQuestionForm /> {/* Corrected component name */}
           </React.Fragment>
         } />
         <Route path="content" element={<Content/>} />
-
-        <Route path="/response" element={<Userform/>} />
-        <Route path="req" element={<Requre/>} />
-
-       
+       <Route path="event" element={<EventDetails/>} />
         </Routes>
       </Router>
     </div>
