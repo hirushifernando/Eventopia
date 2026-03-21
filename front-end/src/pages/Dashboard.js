@@ -86,6 +86,8 @@ export const Dashboard = () => {
   const [items, setItems] = useState(accordionItems);
   const [selectedDate, setSelectedDate] = useState(new Date()); // State to manage selected date
 
+  const getDateLabel = (date) => date.toLocaleDateString(undefined, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+
   const handleBodyChange = (idx, bodyIdx, value) => {
     const updatedItems = items.map((item, index) => {
       if (idx === index) {
@@ -209,12 +211,23 @@ const [result, setResult] = useState('');
         <h4 style={{marginBottom: '30px', color: '#9500AB' }}><b>Calendar & Time</b></h4>
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
           {/* Calendar component */}
-          <div style={{ marginRight: '20px'}}>
-          <Card style={{ width: '350px', backgroundColor:'white', height:'305px', padding:'10px', boxShadow:' rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset' }}>
+          <div style={{ marginRight: '20px', width: '360px' }}>
+          <Card style={{ width: '100%', backgroundColor:'white', minHeight:'360px', padding:'12px', borderRadius:'18px' }}>
             <Calendar
-              onChange={setSelectedDate} // Set the selected date when user clicks on a date
+              onChange={setSelectedDate} // Set the selected date when user clicks a date
               value={selectedDate} // Pass the selected date
+              minDate={new Date()} // Disable previous dates
+              showNeighboringMonth={false}
+              tileClassName={({ date, view }) => {
+                if (view === 'month' && date.toDateString() === selectedDate.toDateString()) {
+                  return 'react-calendar__tile--selected-date';
+                }
+                return null;
+              }}
             />
+            <div style={{ marginTop: '14px', textAlign: 'center', color: '#532b7f', fontWeight: 600 }}>
+              Selected: {getDateLabel(selectedDate)}
+            </div>
           </Card>
           </div>
           <div style={{ marginRight: '20px'}}>
