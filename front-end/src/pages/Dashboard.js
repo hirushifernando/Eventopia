@@ -44,6 +44,8 @@ export const Dashboard = () => {
   const [items, setItems] = useState(accordionItems);
   const [selectedDate, setSelectedDate] = useState(new Date()); // State to manage selected date
 
+  const getDateLabel = (date) => date.toLocaleDateString(undefined, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+
   const handleBodyChange = (idx, bodyIdx, value) => {
     const updatedItems = items.map((item, index) => {
       if (idx === index) {
@@ -104,12 +106,23 @@ const handleAddTask = async () => {
         <h4 style={{ marginTop: '30px', marginBottom: '30px' }}><b>Calendar</b></h4>
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
           {/* Calendar component */}
-          <div style={{ marginRight: '20px'}}>
-          <Card style={{ width: '350px', backgroundColor:'white', height:'305px', padding:'10px' }}>
+          <div style={{ marginRight: '20px', width: '360px' }}>
+          <Card style={{ width: '100%', backgroundColor:'white', minHeight:'360px', padding:'12px', borderRadius:'18px' }}>
             <Calendar
-              onChange={setSelectedDate} // Set the selected date when user clicks on a date
+              onChange={setSelectedDate} // Set the selected date when user clicks a date
               value={selectedDate} // Pass the selected date
+              minDate={new Date()} // Disable previous dates
+              showNeighboringMonth={false}
+              tileClassName={({ date, view }) => {
+                if (view === 'month' && date.toDateString() === selectedDate.toDateString()) {
+                  return 'react-calendar__tile--selected-date';
+                }
+                return null;
+              }}
             />
+            <div style={{ marginTop: '14px', textAlign: 'center', color: '#532b7f', fontWeight: 600 }}>
+              Selected: {getDateLabel(selectedDate)}
+            </div>
           </Card>
           </div>
           <Card style={{ width: '900px', backgroundColor:'white', height:'320px' }}>
