@@ -95,8 +95,8 @@ body {
   }
 
   .register-button {
-    background-color: #a600a6;
-    border: none;
+    background-color: #c6c6f5;
+    border: 2px solid #a600a6;
     border-radius: 20px;
     color: #000000; 
     padding: 10px 40px;
@@ -106,7 +106,7 @@ body {
   }
   
   .register-button:hover {
-    background-color: #d27ad2; 
+    background-color: #651e90; 
   }
   
   @media (max-width: 768px) {
